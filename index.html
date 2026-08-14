@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KTLC · Appointment Setter Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; line-height: 1.65; background: #f7f4ef; color: #2c2420; }
+
+:root {
+  --cr:#f7f4ef; --cr2:#f0ebe3; --cr3:#e8e0d5;
+  --card:#ffffff; --card2:#faf8f5;
+  --bd:#e2dbd0; --bd2:#d4cabf;
+  --tx:#2c2420; --tx2:#7a6e66; --tx3:#b8ada5;
+  --ro:#1a3a6b; --ro2:#1e4d8a;
+  --ro-d:rgba(26,58,107,0.10); --ro-s:rgba(26,58,107,0.06);
+  --go:#9a7a52; --go2:#c4a882;
+  --go-d:rgba(154,122,82,0.10); --go-s:rgba(154,122,82,0.06);
+  --gn:#3d7a5a; --gn-d:rgba(61,122,90,0.10);
+  --bl:#1a4f8a; --bl-d:rgba(26,79,138,0.10);
+  --r:12px; --rs:8px;
+  --c2:#f0ebe3; --rsm:8px;
+}
+
+/* ── LAYOUT ── */
+#app { display: table; width: 100%; }
+#topbar { position: fixed; top: 0; left: 0; right: 0; height: 52px; z-index: 200; background: var(--cr); border-bottom: 1px solid var(--bd); display: flex; align-items: center; justify-content: space-between; padding: 0 16px; }
+#content { display: block; margin-top: 52px; margin-bottom: 60px; }
+#navbar { position: fixed; bottom: 0; left: 0; right: 0; height: 60px; z-index: 200; background: var(--cr); border-top: 1px solid var(--bd); display: flex; align-items: stretch; }
+
+/* ── TOP BAR ── */
+.logo { font-size: 14px; font-weight: 700; color: var(--go); letter-spacing: .06em; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.logo-sep { color: var(--bd2); margin: 0 5px; }
+.logo-sub { font-size: 12px; font-weight: 400; color: var(--tx2); }
+.ltog { display: flex; background: var(--cr2); border: 1px solid var(--bd); border-radius: 20px; padding: 3px; gap: 2px; }
+.lb { background: none; border: none; color: var(--tx2); font-family: inherit; font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 16px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.lb.on { background: var(--go); color: #fff; }
+
+/* ── NAV BAR ── */
+.nb { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; border: none; background: none; color: var(--tx3); font-family: inherit; font-size: 10px; font-weight: 600; padding: 6px 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.nb.on { color: var(--ro); }
+.nb-i { font-size: 18px; line-height: 1; }
+
+/* ── PAGES ── */
+.page { display: none; padding: 14px 14px 20px; max-width: 680px; margin: 0 auto; }
+.page.on { display: block; }
+
+/* ── LANG ── */
+.zh { display: none; } .zh.s { display: block; }
+.en { display: none; } .en.s { display: block; }
+span.zh { display: none; } span.zh.s { display: inline; }
+span.en { display: none; } span.en.s { display: inline; }
+
+/* ── TYPOGRAPHY ── */
+.sec-t { font-family: "Cormorant Garamond", "Georgia", serif; font-size: 22px; font-weight: 600; color: var(--tx); margin-bottom: 3px; }
+.sec-s { color: var(--tx2); font-size: 12px; margin-bottom: 16px; }
+.div { height: 1px; background: var(--bd); margin: 14px 0; }
+.gap { height: 14px; }
+.shead { font-family: "Cormorant Garamond", "Georgia", serif; font-size: 15px; font-weight: 600; color: var(--tx); margin: 16px 0 10px; display: flex; align-items: center; gap: 8px; }
+.shead::after { content: ""; flex: 1; height: 1px; background: var(--bd); }
+
+/* ── CARDS ── */
+.card { background: var(--card); border: 1px solid var(--bd); border-radius: var(--r); padding: 14px; margin-bottom: 10px; }
+.clbl { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .09em; color: var(--tx2); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; background: var(--tx3); }
+.dg { background: var(--go); } .dr { background: var(--ro); } .dgn { background: var(--gn); } .db { background: var(--bl); }
+
+/* ── SCRIPT BOXES ── */
+.sb { background: var(--cr2); border: 1px solid var(--bd); border-left: 3px solid var(--go); border-radius: var(--rs); padding: 11px 42px 11px 13px; margin: 8px 0; font-size: 13px; line-height: 1.75; color: var(--tx); position: relative; }
+.sb-r { border-left-color: var(--ro); } .sb-gn { border-left-color: var(--gn); } .sb-b { border-left-color: var(--bl); } .sb-s { border-left-color: var(--bd2); }
+.sl { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--go); margin-bottom: 5px; }
+.sl-r { color: var(--ro); } .sl-gn { color: var(--gn); } .sl-b { color: var(--bl); } .sl-s { color: var(--tx2); }
+.cpb { position: absolute; top: 9px; right: 9px; background: var(--card); border: 1px solid var(--bd); color: var(--tx2); font-family: inherit; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 5px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+
+/* ── BADGES ── */
+.bdg { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; letter-spacing: .05em; text-transform: uppercase; }
+.bdg-g { background: var(--go-d); color: var(--go); } .bdg-r { background: var(--ro-d); color: var(--ro); }
+.bdg-gn { background: var(--gn-d); color: var(--gn); } .bdg-b { background: var(--bl-d); color: var(--bl); }
+.bdg-gr { background: var(--cr2); color: var(--tx2); border: 1px solid var(--bd); }
+
+/* ── ALERTS ── */
+.al { border-radius: var(--rs); padding: 10px 13px; font-size: 13px; margin: 8px 0; display: flex; gap: 8px; align-items: flex-start; }
+.ali { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.al-g { background: var(--go-s); border: 1px solid rgba(154,122,82,.2); color: #7a5e38; }
+.al-r { background: var(--ro-s); border: 1px solid rgba(139,26,58,.15); color: var(--ro); }
+.al-gn { background: var(--gn-d); border: 1px solid rgba(61,122,90,.2); color: #2d5c42; }
+.al-b { background: var(--bl-d); border: 1px solid rgba(26,79,138,.18); color: var(--bl); }
+
+/* ── CHECKLIST ── */
+.cl { list-style: none; }
+.cl li { padding: 6px 0; border-bottom: 1px solid var(--bd); font-size: 13px; display: flex; gap: 7px; align-items: flex-start; color: var(--tx2); }
+.cl li:last-child { border-bottom: none; }
+.cl li::before { content: "✓"; color: var(--gn); font-weight: 700; flex-shrink: 0; }
+
+/* ── RULE CARDS ── */
+.rc { background: var(--card); border: 1px solid var(--bd); border-radius: var(--rs); padding: 12px; margin-bottom: 8px; display: flex; gap: 10px; }
+.ri { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+.rt { font-weight: 600; font-size: 13px; color: var(--tx); margin-bottom: 2px; }
+.rd { color: var(--tx2); font-size: 13px; }
+
+/* ── OBJECTION CARDS ── */
+.oc { background: var(--card); border: 1px solid var(--bd); border-radius: var(--rs); overflow: hidden; margin-bottom: 8px; }
+.oq { background: var(--cr2); padding: 10px 12px; font-weight: 600; font-size: 13px; color: var(--go); border-bottom: 1px solid var(--bd); display: flex; align-items: center; gap: 7px; }
+.oq::before { content: "Q"; font-size: 10px; font-weight: 800; background: var(--go); color: #fff; width: 17px; height: 17px; border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.ow { padding: 8px 12px; font-size: 12px; color: var(--tx2); border-bottom: 1px solid var(--bd); font-style: italic; background: var(--cr); }
+
+/* ── TIMELINE ── */
+.tl { position: relative; padding-left: 22px; }
+.tl::before { content: ""; position: absolute; left: 6px; top: 10px; bottom: 10px; width: 1px; background: var(--bd2); }
+.tli { position: relative; margin-bottom: 16px; }
+.tld { position: absolute; left: -19px; top: 5px; width: 9px; height: 9px; border-radius: 50%; background: var(--go); border: 2px solid var(--cr); }
+.tlt { font-size: 11px; font-weight: 700; color: var(--go); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 2px; }
+.tlh { font-weight: 600; font-size: 13px; color: var(--tx); margin-bottom: 2px; }
+
+/* ── LOCATION ── */
+.loc-card { background: var(--card); border: 1px solid var(--bd); border-radius: var(--r); overflow: hidden; margin-bottom: 14px; }
+.lhdr { padding: 14px; border-bottom: 1px solid var(--bd); }
+.ln { font-weight: 700; font-size: 15px; color: var(--tx); margin-bottom: 2px; }
+.ld { font-size: 12px; font-weight: 600; color: var(--go); }
+.lbody { padding: 12px 14px; }
+.lrow { display: flex; gap: 8px; margin-bottom: 8px; font-size: 13px; align-items: flex-start; }
+.lic { width: 20px; text-align: center; flex-shrink: 0; }
+.ltxt { color: var(--tx2); line-height: 1.5; flex: 1; }
+.nb-tag { display: inline-block; background: var(--cr2); border: 1px solid var(--bd); border-radius: 5px; padding: 3px 7px; font-size: 11px; color: var(--tx2); margin: 2px; }
+.mbtn { display: block; background: var(--go); color: #fff; text-align: center; padding: 10px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-decoration: none; }
+.acpb { background: var(--cr2); border: 1px solid var(--bd); color: var(--tx2); font-family: inherit; font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 5px; cursor: pointer; margin-left: 6px; -webkit-tap-highlight-color: transparent; vertical-align: middle; }
+
+/* ── HOME ── */
+.hero { padding: 16px 0 14px; border-bottom: 1px solid var(--bd); margin-bottom: 16px; }
+.brand { font-family: "Cormorant Garamond","Georgia",serif; font-size: 28px; font-weight: 600; color: var(--ro); letter-spacing: .04em; margin-bottom: 2px; }
+.tagline { font-family: "Cormorant Garamond","Georgia",serif; font-size: 14px; color: var(--tx2); font-style: italic; margin-bottom: 8px; }
+.about { font-size: 13px; color: var(--tx2); line-height: 1.65; margin-bottom: 8px; }
+.pill { display: inline-flex; align-items: center; gap: 5px; background: var(--go-s); border: 1px solid rgba(154,122,82,.2); border-radius: 20px; padding: 4px 10px; font-size: 11px; font-weight: 600; color: var(--go); }
+.pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--go); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.4; } }
+.krow { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.kpi { background: var(--card); border: 1px solid var(--bd); border-radius: var(--rs); padding: 11px 10px; text-align: center; }
+.kv { font-family: "Cormorant Garamond","Georgia",serif; font-size: 20px; font-weight: 600; color: var(--go); }
+.kl { font-size: 11px; color: var(--tx2); margin-top: 1px; line-height: 1.3; }
+.bgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+.bc { background: var(--card); border: 1px solid var(--bd); border-radius: var(--r); padding: 14px; position: relative; overflow: hidden; }
+.bc::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--go); }
+.bcb { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 10px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: .05em; background: var(--go-d); color: var(--go); }
+.bcn { font-weight: 700; font-size: 13px; color: var(--tx); margin-bottom: 1px; }
+.bcd { font-size: 12px; color: var(--ro); font-weight: 600; margin-bottom: 6px; }
+.bci { font-size: 11px; color: var(--tx2); line-height: 1.6; }
+.qgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 14px; }
+.qa { background: var(--card); border: 1px solid var(--bd); border-radius: var(--rs); padding: 12px; cursor: pointer; text-align: left; -webkit-tap-highlight-color: transparent; width: 100%; font-family: inherit; }
+.qa-i { font-size: 18px; margin-bottom: 4px; }
+.qa-l { font-weight: 600; font-size: 13px; color: var(--tx); }
+.qa-s { font-size: 11px; color: var(--tx2); margin-top: 2px; }
+
+/* ── WA FLOW ── */
+.waw { background: #e8e0d8; border: 2px solid var(--bd2); border-radius: 18px; overflow: hidden; max-width: 360px; margin: 0 auto; box-shadow: 0 4px 20px rgba(44,36,32,.10); }
+.wabar { background: #3d5a47; padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
+.waav { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg,#9a7a52,#c4a882); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+.wanm { font-weight: 600; font-size: 13px; color: #fff; }
+.waon { font-size: 11px; color: rgba(255,255,255,.7); }
+.wabody { padding: 10px; min-height: 300px; display: flex; flex-direction: column; gap: 7px; background: #e5ddd5; }
+.wamsg { max-width: 84%; padding: 8px 11px; border-radius: 10px; font-size: 12.5px; line-height: 1.55; opacity: 0; transform: translateY(8px); transition: all .35s ease; }
+.wamsg.vis { opacity: 1; transform: translateY(0); }
+.wabot { background: #fff; color: #333; border-bottom-left-radius: 2px; align-self: flex-start; box-shadow: 0 1px 2px rgba(0,0,0,.10); }
+.wausr { background: #dcf8c6; color: #1a2a1a; border-bottom-right-radius: 2px; align-self: flex-end; box-shadow: 0 1px 2px rgba(0,0,0,.10); }
+.watm { font-size: 10px; color: rgba(0,0,0,.3); text-align: right; margin-top: 3px; }
+.wastep { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--tx3); text-align: center; padding: 3px 0; }
+.fctrl { display: flex; gap: 8px; justify-content: center; margin-top: 10px; }
+.fcbtn { background: var(--card); border: 1px solid var(--bd); color: var(--tx2); font-family: inherit; font-size: 12px; font-weight: 600; padding: 8px 20px; border-radius: 20px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.fcbtn:disabled { opacity: .3; cursor: default; }
+.sdots { display: flex; gap: 5px; justify-content: center; margin: 8px 0; }
+.sdot { width: 6px; height: 6px; border-radius: 50%; background: var(--bd2); transition: all .3s; }
+.sdot.on { background: var(--go); width: 16px; border-radius: 3px; }
+.sinfo { background: var(--card2); border: 1px solid var(--bd); border-radius: var(--rs); padding: 10px 12px; margin-top: 10px; }
+.silbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--go); margin-bottom: 4px; }
+.sitxt { color: var(--tx2); font-size: 13px; line-height: 1.5; }
+
+/* ── IMAGE COPY ── */
+.ba-wrap { display: flex; align-items: center; gap: 10px; background: var(--cr2); border: 1px solid var(--bd); border-radius: var(--rs); padding: 10px; margin: 8px 0; }
+.ba-img { width: 100px; height: 100px; object-fit: cover; border-radius: var(--rs); border: 1px solid var(--bd); flex-shrink: 0; }
+.ba-meta { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.ba-lbl { font-size: 11px; font-weight: 600; color: var(--tx2); line-height: 1.5; }
+.ba-cpb { background: var(--ro); color: #fff; border: none; border-radius: 5px; padding: 6px 14px; font-size: 11px; font-weight: 700; cursor: pointer; font-family: inherit; -webkit-tap-highlight-color: transparent; align-self: flex-start; }
+
+
+/* ── TABS ── */
+.tabs { display:flex; gap:6px; margin-bottom:14px; border-bottom:1px solid var(--bd); padding-bottom:0; }
+.tab-btn { background:none; border:none; border-bottom:2px solid transparent; padding:8px 14px; font-size:13px; font-weight:600; color:var(--tx2); cursor:pointer; font-family:inherit; -webkit-tap-highlight-color:transparent; margin-bottom:-1px; }
+.tab-btn.on { color:var(--ro); border-bottom-color:var(--ro); }
+.tab-pane { display:none; }
+.tab-pane.on { display:block; }
+
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <div class="logo" id="goHome">KTLC <span class="logo-sep">·</span> <span class="logo-sub">Appt Setter Playbook</span></div>
+  <div class="ltog">
+    <button class="lb on" id="btnZH">中文</button>
+    <button class="lb" id="btnEN">EN</button>
+  </div>
+</div>
+
+<div id="content">
+<div id="pg-home" class="page on">
+<div class="hero">
+  <div class="brand" style="color:var(--ro)">KOH &amp; TEH LAW CHAMBER</div>
+  <div class="tagline zh s">法律预约助手 · CS 操作手册</div>
+  <div class="tagline en">Legal Appointment Setter · CS Playbook</div>
+  <div class="about zh s">KTLC 专业处理婚姻家庭法律及遗产承办。📍 吉隆坡（线下）· 💻 JB / 外州（Zoom）</div>
+  <div class="about en">KTLC specialises in family law and estate administration. 📍 KL (in-person) · 💻 JB / Other states (Zoom only)</div>
+  <div class="pill"><div class="pulse"></div><span class="zh s">现正运营中</span><span class="en">Currently active</span></div>
+</div>
+
+<div class="krow">
+  <div class="kpi"><div class="kv">RM200</div><div class="kl"><span class="zh s">📞 Zoom 咨询</span><span class="en">📞 Zoom consult</span></div></div>
+  <div class="kpi"><div class="kv">RM200</div><div class="kl"><span class="zh s">🏢 线下咨询</span><span class="en">🏢 In-person</span></div></div>
+  <div class="kpi"><div class="kv">100%</div><div class="kl"><span class="zh s">委托后抵扣</span><span class="en">Deductible</span></div></div>
+</div>
+
+<div class="al al-b" style="margin-bottom:16px">
+  <div class="ali">💡</div>
+  <div><span class="zh s"><strong>核心原则：</strong>你的工作不是问 lead "要不要见律师"——而是告诉他"<strong>你的情况需要见律师</strong>"。Consultation 不代表一定要马上进行离婚，主要是让你知道自己的选择和下一步。</span><span class="en"><strong>Core principle:</strong> Your job is not to ask leads "do you want to see a lawyer" — it's to tell them "<strong>your situation needs a lawyer</strong>." Consultation doesn't mean proceeding immediately — it's about understanding options and next steps.</span></div>
+</div>
+
+<div class="div"></div>
+
+<!-- OFFER CARD -->
+<div class="card" style="border-left:3px solid var(--ro);margin-bottom:14px">
+  <div class="clbl"><div class="dot dr"></div><span class="zh s">⚡ 我们的咨询 Offer — 怎么跟 Lead 说</span><span class="en">⚡ Our Consultation Offer — How to pitch it</span></div>
+  <div class="al al-b" style="margin-bottom:10px"><div class="ali">💡</div><div><span class="zh s">这个 offer 的设计是 <strong>零风险</strong>——因为咨询费委托后全额抵扣，等于免费。CS 每次都要讲清楚这一点。</span><span class="en">This offer is designed as <strong>zero risk</strong> — the consultation fee is fully deductible upon engagement, so it's essentially free. CS must always make this clear.</span></div></div>
+
+  <div style="margin-bottom:10px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+      <div style="background:var(--bl-d);border:1px solid rgba(26,79,138,0.2);border-radius:var(--rs);padding:10px;text-align:center">
+        <div style="font-size:20px;margin-bottom:3px">💻</div>
+        <div style="font-size:18px;font-weight:800;color:var(--bl)">RM200</div>
+        <div style="font-size:11px;color:var(--tx2)"><span class="zh s">📞 Zoom · 1小时<br>JB · 外州</span><span class="en">📞 Zoom · 1 hour<br>JB · Other states</span></div>
+      </div>
+      <div style="background:var(--ro-s);border:1px solid var(--ro-d);border-radius:var(--rs);padding:10px;text-align:center">
+        <div style="font-size:20px;margin-bottom:3px">🏢</div>
+        <div style="font-size:18px;font-weight:800;color:var(--ro)">RM200</div>
+        <div style="font-size:11px;color:var(--tx2)"><span class="zh s">线下咨询 · 1小时<br>📍 KL 限定</span><span class="en">In-person · 1 hour<br>📍 KL only</span></div>
+      </div>
+    </div>
+    <div style="background:var(--gn-d);border:1px solid rgba(61,122,90,0.2);border-radius:var(--rs);padding:10px;text-align:center">
+      <span style="font-size:13px;font-weight:700;color:var(--gn)">✅ <span class="zh s">委托后全额抵扣 = 等于咨询免费</span><span class="en">Fully deductible upon engagement = consultation is essentially free</span></span>
+    </div>
+  </div>
+
+  <div class="shead zh s" style="margin-top:12px">💡 RM200，这 1 小时你会得到：</div>
+  <div class="shead en" style="margin-top:12px">💡 RM200 — what you get in 1 hour:</div>
+  <ul class="cl">
+    <li><span class="zh s">✔️ 清楚了解你的情况适合走哪条法律途径</span><span class="en">✔️ Clearly understand which legal route fits your situation</span></li>
+    <li><span class="zh s">✔️ 整个流程和大概时间线</span><span class="en">✔️ Full process walkthrough and approximate timeline</span></li>
+    <li><span class="zh s">✔️ 费用范围和付款方式（灵活分期，固定 Nett 价）</span><span class="en">✔️ Fee range and payment options (flexible instalment, fixed nett price)</span></li>
+    <li><span class="zh s">✔️ 律师告诉你现在应该做的第一步</span><span class="en">✔️ The lawyer tells you the exact first step to take</span></li>
+    <li><span class="zh s">✔️ 委托后，咨询费全额抵扣——等于你零额外支出</span><span class="en">✔️ Upon engagement, fee fully deducted — zero extra cost</span></li>
+  </ul>
+</div>
+
+<!-- SERVICE SCOPE -->
+<div class="card" style="margin-bottom:14px">
+  <div class="clbl"><div class="dot dg"></div><span class="zh s">📍 服务范围</span><span class="en">📍 Service Coverage</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+    <div style="background:var(--cr2);border:1px solid var(--bd);border-radius:var(--rs);padding:10px">
+      <div style="font-size:12px;font-weight:700;color:var(--ro);margin-bottom:6px">🏢 <span class="zh s">线下</span><span class="en">In-person</span></div>
+      <div style="font-size:12px;color:var(--tx2)"><span class="zh s">📍 吉隆坡（KL）</span><span class="en">📍 Kuala Lumpur (KL) only</span></div>
+    </div>
+    <div style="background:var(--cr2);border:1px solid var(--bd);border-radius:var(--rs);padding:10px">
+      <div style="font-size:12px;font-weight:700;color:var(--bl);margin-bottom:6px">💻 <span class="zh s">Zoom</span><span class="en">Zoom</span></div>
+      <div style="font-size:12px;color:var(--tx2)"><span class="zh s">💻 JB · 外州皆可<br>❌ 海外暂不接受</span><span class="en">💻 JB · Other states<br>❌ Overseas not available</span></div>
+    </div>
+  </div>
+
+  <div class="clbl" style="margin-top:6px"><div class="dot dg"></div><span class="zh s">⚖️ 服务案件类型</span><span class="en">⚖️ Cases we handle</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+    <div style="font-size:12px;color:var(--tx2);padding:6px 0;border-bottom:1px solid var(--bd)">💍 <span class="zh s">双方同意离婚</span><span class="en">Mutual divorce</span></div>
+    <div style="font-size:12px;color:var(--tx2);padding:6px 0;border-bottom:1px solid var(--bd)">⚖️ <span class="zh s">单方面离婚</span><span class="en">Contested divorce</span></div>
+    <div style="font-size:12px;color:var(--tx2);padding:6px 0;border-bottom:1px solid var(--bd)">👨‍👧 <span class="zh s">孩子监护权</span><span class="en">Child custody</span></div>
+    <div style="font-size:12px;color:var(--tx2);padding:6px 0;border-bottom:1px solid var(--bd)">🏠 <span class="zh s">婚姻资产分配</span><span class="en">Asset division</span></div>
+    <div style="font-size:12px;color:var(--tx2);padding:6px 0;border-bottom:1px solid var(--bd)">📜 <span class="zh s">Grant of Probate</span><span class="en">Grant of Probate</span></div>
+    <div style="font-size:12px;color:var(--tx2);padding:6px 0;border-bottom:1px solid var(--bd)">📋 <span class="zh s">Letters of Administration</span><span class="en">Letters of Administration</span></div>
+    <div style="font-size:12px;color:var(--tx2);padding:6px 0">💰 <span class="zh s">赡养费 / 抚养费</span><span class="en">Maintenance / alimony</span></div>
+    <div style="font-size:12px;color:var(--tx2);padding:6px 0">🔏 <span class="zh s">遗嘱承办</span><span class="en">Estate administration</span></div>
+  </div>
+</div>
+
+<div class="shead zh s">这个 Lead 是什么案件？</div>
+<div class="shead en">What type of case is this Lead?</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px">
+  <button class="qa" data-pg="pg-divorce" style="padding:20px 14px">
+    <div class="qa-i" style="font-size:28px">💍</div>
+    <div class="qa-l" style="font-size:15px"><span class="zh s">离婚案件</span><span class="en">Divorce Case</span></div>
+    <div class="qa-s"><span class="zh s">双方同意 / 单方面</span><span class="en">Mutual / Contested</span></div>
+  </button>
+  <button class="qa" data-pg="pg-probate" style="padding:20px 14px">
+    <div class="qa-i" style="font-size:28px">📜</div>
+    <div class="qa-l" style="font-size:15px"><span class="zh s">遗产案件</span><span class="en">Estate Case</span></div>
+    <div class="qa-s"><span class="zh s">有 Will / 无 Will</span><span class="en">With / Without Will</span></div>
+  </button>
+</div>
+</div>
+<div id="pg-divorce" class="page">
+<div class="gap"></div>
+<div class="sec-t" style="color:var(--ro)">💍 <span class="zh s">离婚案件</span><span class="en">Divorce Case</span></div>
+<div class="sec-s"><span class="zh s">双方同意 · 单方面 · 流程 · FAQ · 跟进</span><span class="en">Mutual · Contested · Flow · FAQ · Follow Up</span></div>
+
+<div id="divorce-tabs">
+  <div class="tabs">
+    <button class="tab-btn on" data-tab="div-flow"><span class="zh s">📋 流程</span><span class="en">📋 Flow</span></button>
+    <button class="tab-btn" data-tab="div-scripts"><span class="zh s">💬 话术</span><span class="en">💬 Scripts</span></button>
+    <button class="tab-btn" data-tab="div-faq"><span class="zh s">❓ FAQ</span><span class="en">❓ FAQ</span></button>
+    <button class="tab-btn" data-tab="div-fu"><span class="zh s">🔄 跟进</span><span class="en">🔄 Follow Up</span></button>
+    <button class="tab-btn" data-tab="div-rules"><span class="zh s">⚠️ 规则</span><span class="en">⚠️ Rules</span></button>
+  </div>
+
+  <!-- FLOW TAB -->
+  <div class="tab-pane on" id="div-flow">
+    <div class="al al-b" style="margin-bottom:12px"><div class="ali">🎯</div><div><span class="zh s">目标只有一个：预约面见律师。不要在 WA 给任何法律意见。</span><span class="en">One goal: book the lawyer consultation. Never give legal advice on WA.</span></div></div>
+
+<div class="card" style="border-left:3px solid var(--go);margin-bottom:14px">
+  <div class="clbl"><div class="dot dg"></div><span class="zh s">💎 离婚服务 Value Stack — 委托后获得</span><span class="en">💎 Divorce Service Value Stack — Upon engagement</span></div>
+  <ul class="cl">
+    <li><span class="zh s">📄 全程文件准备与法庭提呈</span><span class="en">📄 Full document preparation and court filing</span></li>
+    <li><span class="zh s">👤 专属 Case Manager 全程跟进（有专人主动通知每一个进度）</span><span class="en">👤 Dedicated Case Manager throughout (proactive updates at every stage)</span></li>
+    <li><span class="zh s">🏛️ JPN 更新协助（不需要自己处理政府部门手续）</span><span class="en">🏛️ JPN update assistance (no need to handle government procedures yourself)</span></li>
+    <li><span class="zh s">📝 协议书起草与审核</span><span class="en">📝 Agreement drafting and review</span></li>
+    <li><span class="zh s">💳 Deposit + 尾款，灵活分期付款</span><span class="en">💳 Deposit + balance, flexible instalment payment</span></li>
+    <li><span class="zh s">🔒 固定 Nett 价，无隐藏收费保证</span><span class="en">🔒 Fixed nett price, no hidden fees guaranteed</span></li>
+    <li><span class="zh s">📅 承诺完成时间表</span><span class="en">📅 Committed completion timeline</span></li>
+  </ul>
+  <div class="al al-g" style="margin-top:10px"><div class="ali">💬</div><div><span class="zh s"><em>"客户感受到的不是'我在付钱办离婚'，而是'我请了一个把整件事扛下来的团队'。"</em></span><span class="en"><em>"Clients feel not 'I'm paying to get a divorce' but 'I've hired a team that handles everything for me.'"</em></span></div></div>
+</div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot" style="background:var(--bl)"></div><span class="zh s">🤖 Step 1 — Bot 开场（自动发）</span><span class="en">🤖 Step 1 — Bot Opening (auto-send)</span></div>
+      <div class="sb"><span class="sl">Bot Opening</span><button class="cpb">Copy</button>
+        <div class="zh s">您好！我是 KTLC 的 Ashley 👋<br><br>我们专门处理婚姻和家庭法律事务。<br><br>请问你现在的情况是：<br><br>A）我和对方都同意离婚<br>B）只有我想离婚，对方不同意<br>C）我想了解离婚的流程和费用<br>D）其他情况</div>
+        <div class="en">Hi! I'm Ashley from KTLC 👋<br><br>We specialise in matrimonial and family law.<br><br>May I ask which situation applies to you?<br><br>A) Both of us agree to the divorce<br>B) Only I want the divorce, my spouse disagrees<br>C) I want to understand the divorce process and fees<br>D) Other situation</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 2A — Lead 选了 A（双方同意）</span><span class="en">👤 Step 2A — Lead chose A (Mutual)</span></div>
+      <div class="al al-g" style="margin-bottom:8px"><div class="ali">💡</div><div><span class="zh s">双方同意，起步 RM5,000。有没有孩子、共同资产会影响最终费用。</span><span class="en">Mutual divorce, starts from RM5,000. Children, joint assets affect final fee.</span></div></div>
+      <div class="sb"><span class="sl">Mutual Reply</span><button class="cpb">Copy</button>
+        <div class="zh s">明白了 ☺️<br><br>双方同意的情况，还是需要律师来处理整个流程——文件、协议书、法庭提呈都需要正确进行。<br><br>不过每个案件都有自己的细节——<br>有没有孩子？有没有共同资产？<br>这些会影响整个流程和时间线。<br><br>律师见了你才能给你最准确的建议。<br><br>我帮你安排跟律师的 <strong>RM200 咨询</strong>，1小时。<br>如果之后委托我们，咨询费全额抵扣 ☺️<br><br>你明天方便过来吗？几点比较好？</div>
+        <div class="en">Got it ☺️<br><br>When both parties agree, the process tends to be smoother — we've handled many similar cases.<br><br>However every case has its own details —<br>Are there children? Any joint assets?<br>These affect the overall process and timeline.<br><br>The lawyer can give the most accurate advice after meeting you.<br><br>Let me arrange a <strong>RM200 consultation</strong>, 1 hour.<br>If you engage us, the consultation fee is fully deductible ☺️<br><br>Are you free tomorrow? What time works?</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dr"></div><span class="zh s">👤 Step 2B — Lead 选了 B（单方面）</span><span class="en">👤 Step 2B — Lead chose B (Contested)</span></div>
+      <div class="al al-r" style="margin-bottom:8px"><div class="ali">⚠️</div><div><span class="zh s">单方面费用 range 很大，不要在 WA 报价。引导来咨询。</span><span class="en">Contested fees vary greatly — don't quote on WA. Guide to consultation.</span></div></div>
+      <div class="sb"><span class="sl">Contested Reply</span><button class="cpb">Copy</button>
+        <div class="zh s">明白，这种情况跟双方已经同意离婚的处理方式会不太一样 ☺️<br><br>单方面离婚需要经过法庭，时间和费用会根据你的情况而定。<br><br>对方的态度、有没有孩子、资产分配——这些都会影响案件的走向。<br><br>我可以先帮你安排一个 consultation，你把整个情况跟律师说明，会比我们在这里猜测准确很多 ☺️<br><br>Consultation 不代表你一定要马上行动——主要是让你先知道自己有什么选择和下一步。</div>
+        <div class="en">Got it, we've seen this situation many times ☺️<br><br>A contested divorce goes through court, and the time and fees depend on your specific situation.<br><br>Your spouse's attitude, whether there are children, asset division — all of these affect how the case unfolds.<br><br>In this situation, the most important thing is to understand your legal rights as soon as possible.<br><br>Let me arrange a <strong>RM200 consultation</strong>, 1 hour.<br>The lawyer will analyse your situation and advise on the best next steps ☺️<br><br>Are you free tomorrow?</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 2C — Lead 选了 C（想了解）</span><span class="en">👤 Step 2C — Lead chose C (Enquiring)</span></div>
+      <div class="sb"><span class="sl">Enquiry Reply</span><button class="cpb">Copy</button>
+        <div class="zh s">明白 ☺️<br><br>离婚有几种不同的途径，适合哪一种要看你的实际情况。<br><br>你的情况需要律师来了解，才能告诉你有哪些选择——<br>在这里我没办法给你准确的建议。<br><br>Consultation 不代表你一定要马上进行离婚，<br>主要是让你先清楚自己的选择和下一步怎么走。<br><br>我帮你安排，律师见了你之后直接告诉你。</div>
+        <div class="en">Understood ☺️<br><br>There are several different divorce routes, and which one applies depends on your actual situation.<br><br>Your situation needs a lawyer to understand properly before anyone can tell you what options you have —<br>I'm not in a position to give you accurate advice here.<br><br>Consultation doesn't mean you have to proceed with divorce immediately —<br>it's mainly so you understand your options and what the next step looks like.<br><br>Let me arrange it — the lawyer will tell you directly after meeting you.</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+  <div class="sb sb-gn"><span class="sl sl-gn">📅 Booking CTA</span><button class="cpb">Copy</button>
+    <div class="zh s">📍 KTLC — Koh &amp; Teh Law Chamber<br><br>
+<strong>RM200 / 1小时咨询</strong>（线下 KL · Zoom 皆可）<br>
+✅ 委托后咨询费全额抵扣<br><br>
+<strong>这 1 小时，你会得到：</strong><br>
+✔️ 了解你的情况适合走哪条法律途径<br>
+✔️ 清楚整个流程和大概时间线<br>
+✔️ 知道费用范围和付款方式<br>
+✔️ 律师告诉你现在应该做的第一步<br><br>
+Consultation 不代表你一定要马上行动——主要是让你先清楚自己的选择。<br><br>
+你<strong>明天下午 2pm</strong> 方便吗？还是<strong>后天上午</strong>比较好？ ☺️</div>
+    <div class="en">📍 KTLC — Koh &amp; Teh Law Chamber<br><br>💻 <strong>📍 KTLC — Koh &amp; Teh Law Chamber<br><br>
+<strong>RM200 / 1 hour consultation</strong> (In-person KL · Zoom available)<br>
+✅ Fully deductible upon engagement<br><br>
+<strong>In this 1 hour, you will get:</strong><br>
+✔️ Understand which legal route fits your situation<br>
+✔️ Full clarity on the process and timeline<br>
+✔️ Know the fee range and payment options<br>
+✔️ The lawyer tells you the exact first step to take<br><br>
+Consultation doesn't mean you have to act immediately — it's mainly so you understand your options clearly.<br><br>
+Are you free <strong>tomorrow at 2pm</strong>? Or would <strong>the morning after</strong> work better? ☺️</div>
+  </div>
+</div>
+  </div>
+
+  <!-- SCRIPTS TAB -->
+  <div class="tab-pane" id="div-scripts">
+    <div class="clbl"><div class="dot dr"></div><span class="zh s">💬 常用话术</span><span class="en">💬 Common Scripts</span></div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dr"></div><span class="zh s">如果继续问法律问题</span><span class="en">If they keep asking legal questions</span></div>
+      <div class="card">
+  <div class="sb sb-r"><span class="sl sl-r">❓ 如果继续问法律问题</span><button class="cpb">Copy</button>
+    <div class="zh s">这个问题很好，不过坦白说，我在 WA 上没办法给你准确答案——每个案件情况都不一样 ☺️<br><br>在这里解释，我怕反而误导你。<br>最好来见律师，把你的情况说清楚，律师才能给你真正正确的建议。<br><br>RM200 咨询，1小时，委托后可抵扣。你明天方便过来吗？ ☺️</div>
+    <div class="en">That's a great question — but honestly, I can't give you an accurate answer on WA, as every case is different ☺️<br><br>Explaining here might actually mislead you.<br>The best approach is to come see the lawyer, explain your situation, and get truly accurate advice.<br><br>RM200 consultation, 1 hour, deductible upon engagement. Are you free tomorrow? ☺️</div>
+  </div>
+</div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dr"></div><span class="zh s">"我老公/老婆不同意怎么办？"</span><span class="en">"My spouse doesn't agree, what can I do?"</span></div>
+      <div class="sb sb-r"><span class="sl sl-r">Spouse Disagrees</span><button class="cpb">Copy</button>
+        <div class="zh s">明白，这种情况跟双方已经同意离婚的处理方式会不太一样 ☺️<br><br>律师需要了解你们目前的情况，才能确认有哪些选择以及接下来怎么处理。<br><br>我可以先帮你安排一个 consultation，你把整个情况跟律师说明，会比我们在 WhatsApp 这里猜测准确很多。<br><br>要不要我现在帮你安排？</div>
+        <div class="en">Understood — this situation is handled differently from cases where both parties already agree ☺️<br><br>The lawyer needs to understand your current situation<br>to confirm what options are available and how to proceed.<br><br>Let me arrange a consultation for you —<br>you explain the full situation to the lawyer directly,<br>which will be far more accurate than us guessing here on WhatsApp.<br><br>Want me to arrange it now?</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dr"></div><span class="zh s">"有孩子怎么办？"</span><span class="en">"What about my children?"</span></div>
+      <div class="sb sb-r"><span class="sl sl-r">Children Custody</span><button class="cpb">Copy</button>
+        <div class="zh s">孩子监护权是离婚案件里最需要小心处理的部分 ☺️<br><br>马来西亚法律对监护权有一套标准，但每个案件的细节都不一样。<br><br>律师需要了解你和孩子的情况，才能给你最有利的建议。<br><br>来咨询，律师会详细跟你解释 明天方便吗？ ☺️</div>
+        <div class="en">Child custody is the most sensitive part of any divorce case ☺️<br><br>Malaysian law has standards for child custody, but every case has its own details.<br><br>The lawyer needs to understand your specific situation to give you the most favourable advice.<br><br>Come for a consultation — the lawyer will explain everything. free tomorrow? ☺️</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dr"></div><span class="zh s">"费用大概多少？"（双方同意）</span><span class="en">"How much does it cost?" (Mutual)</span></div>
+      <div class="sb sb-r"><span class="sl sl-r">Mutual Fee</span><button class="cpb">Copy</button>
+        <div class="zh s">双方同意离婚的费用，<strong>起步价 RM5,000</strong> ☺️<br><br>不过最终费用要看有没有孩子监护权、共同资产分配等细节。<br><br>Zoom RM200 / 线下 律师了解了你的情况后才能给你准确数字——不会有惊喜 ☺️</div>
+        <div class="en">For mutual divorce, fees <strong>start from RM5,000</strong> ☺️<br><br>But the final amount depends on child custody, joint asset division and other details.<br><br>RM200 consultation — the lawyer will give you an accurate figure after understanding your case. No surprises ☺️</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dr"></div><span class="zh s">"费用大概多少？"（单方面）</span><span class="en">"How much does it cost?" (Contested)</span></div>
+      <div class="sb sb-r"><span class="sl sl-r">Contested Fee</span><button class="cpb">Copy</button>
+        <div class="zh s">单方面离婚的费用要看你的具体情况 ☺️<br><br>主要看：对方配不配合、有没有孩子监护权争议、资产分配是否复杂。<br><br>每个案件不一样，我不想在这里给你不准确的数字。<br>来见律师，了解了你的情况后才能给你真实估算。来咨询 ☺️</div>
+        <div class="en">Contested divorce fees depend on your specific circumstances ☺️<br><br>Key factors: your spouse's cooperation level, child custody disputes, complexity of asset division.<br><br>Every case is different — I don't want to give you an inaccurate number here.<br>Come see the lawyer for a realistic estimate after understanding your case. RM200 consultation ☺️</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+  <div class="sb sb-gn"><span class="sl sl-gn">📅 Booking CTA</span><button class="cpb">Copy</button>
+    <div class="zh s">📍 KTLC — Koh &amp; Teh Law Chamber<br><br>
+<strong>RM200 / 1小时咨询</strong>（线下 KL · Zoom 皆可）<br>
+✅ 委托后咨询费全额抵扣<br><br>
+<strong>这 1 小时，你会得到：</strong><br>
+✔️ 了解你的情况适合走哪条法律途径<br>
+✔️ 清楚整个流程和大概时间线<br>
+✔️ 知道费用范围和付款方式<br>
+✔️ 律师告诉你现在应该做的第一步<br><br>
+Consultation 不代表你一定要马上行动——主要是让你先清楚自己的选择。<br><br>
+你<strong>明天下午 2pm</strong> 方便吗？还是<strong>后天上午</strong>比较好？ ☺️</div>
+    <div class="en">📍 KTLC — Koh &amp; Teh Law Chamber<br><br>💻 <strong>📍 KTLC — Koh &amp; Teh Law Chamber<br><br>
+<strong>RM200 / 1 hour consultation</strong> (In-person KL · Zoom available)<br>
+✅ Fully deductible upon engagement<br><br>
+<strong>In this 1 hour, you will get:</strong><br>
+✔️ Understand which legal route fits your situation<br>
+✔️ Full clarity on the process and timeline<br>
+✔️ Know the fee range and payment options<br>
+✔️ The lawyer tells you the exact first step to take<br><br>
+Consultation doesn't mean you have to act immediately — it's mainly so you understand your options clearly.<br><br>
+Are you free <strong>tomorrow at 2pm</strong>? Or would <strong>the morning after</strong> work better? ☺️</div>
+  </div>
+</div>
+  </div>
+
+  <!-- FAQ TAB -->
+  <div class="tab-pane" id="div-faq">
+    <div class="oc">
+      <div class="oq"><span class="zh s">离婚要多久？</span><span class="en">How long does divorce take?</span></div>
+      <div style="padding:0 12px 12px">
+        <div class="sb sb-g"><span class="sl">Timeline</span><button class="cpb">Copy</button>
+          <div class="zh s">离婚的时间要看你的情况 ☺️<br><br>• 双方同意：通常 <strong>3–6 个月</strong><br>• 单方面（对方不同意）：时间会比较长，要看对方配合程度和法庭排期<br><br>律师见了你之后才能给你更准确的时间线 ☺️</div>
+          <div class="en">The timeline depends on your situation ☺️<br><br>• Mutual divorce: usually <strong>3–6 months</strong><br>• Contested: longer, depends on spouse's cooperation and court scheduling<br><br>The lawyer can give a more accurate timeline after meeting you ☺️</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oc">
+      <div class="oq"><span class="zh s">咨询费可以免费吗？</span><span class="en">Can the consultation be free?</span></div>
+      <div style="padding:0 12px 12px">
+        <div class="sb sb-g"><span class="sl">Free Consult</span><button class="cpb">Copy</button>
+          <div class="zh s">我们的咨询是 RM200（线下）/ RM200（Zoom） ☺️<br><br>不过这个费用不是额外支出——如果你之后委托我们，咨询费会<strong>全额抵扣</strong>服务费，等于你一分钱都没多花。<br><br>而且 1 小时里，律师会直接告诉你你的情况、你的选择、大概费用——对你做决定非常重要 ☺️</div>
+          <div class="en">Our consultation is RM200 (in-person) / RM200 (Zoom) ☺️<br><br>But this isn't an extra cost — if you engage us afterwards, the consultation fee is <strong>fully deducted</strong> from the service fee, so you pay nothing extra.<br><br>And in that 1 hour, the lawyer tells you your situation, your options, and approximate fees — critical for your decision ☺️</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oc">
+      <div class="oq"><span class="zh s">我可以拿到孩子监护权吗？</span><span class="en">Can I get custody of my children?</span></div>
+      <div style="padding:0 12px 12px">
+        <div class="sb sb-g"><span class="sl">Custody</span><button class="cpb">Copy</button>
+          <div class="zh s">孩子监护权的问题，真的要律师了解了你的完整情况才能给你准确答案 ☺️<br><br>我不想在这里给你不准确的说法反而误导你。<br><br>来见律师，1小时，律师会根据你的情况告诉你你的胜算和最好的做法 ☺️</div>
+          <div class="en">Child custody really requires the lawyer to understand your full situation before giving an accurate answer ☺️<br><br>I don't want to give you inaccurate information that might mislead you.<br><br>Come see the lawyer, 1 hour — the lawyer will tell you your chances and the best approach based on your situation ☺️</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oc">
+      <div class="oq"><span class="zh s">在国外可以办离婚吗？</span><span class="en">Can I divorce if I'm overseas?</span></div>
+      <div style="padding:0 12px 12px">
+        <div class="sb sb-g"><span class="sl">Overseas</span><button class="cpb">Copy</button>
+          <div class="zh s">这个情况有一些特别的法律考量，我不想在这里给你不准确的答案 ☺️<br><br>如果你人在国外，可以先安排一个视频咨询。<br>1小时，律师会告诉你最合适的做法。<br><br>要不要我帮你安排？ ☺️</div>
+          <div class="en">This situation has some special legal considerations — I don't want to give you an inaccurate answer here ☺️<br><br>If you're overseas, we can arrange a video consultation.<br>The lawyer will advise on the best approach.<br><br>Would you like me to arrange that? ☺️</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOLLOW UP TAB -->
+  <div class="tab-pane" id="div-fu">
+    <div class="clbl"><div class="dot dg"></div><span class="zh s">没预约的 Leads</span><span class="en">Leads who haven't booked</span></div>
+    <div class="tl">
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tlt">FU1 · +3小时 <span class="bdg bdg-gr">人工</span></div>
+        <div class="sb" style="margin-top:7px"><span class="sl">FU1</span><button class="cpb">Copy</button>
+          <div class="zh s">[Name] 你好 ☺️ 如果还有任何问题，随时可以问我。<br><br>我们的律师这周还有咨询空档，要不要我帮你先预留一个时间？</div>
+          <div class="en">[Name] hi there ☺️ Feel free to ask if you have more questions.<br><br>Our lawyer still has slots this week — want me to reserve a time for you?</div>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tlt">FU2 · +1天 <span class="bdg bdg-gr">人工 10-11am</span></div>
+        <div class="sb" style="margin-top:7px"><span class="sl">FU2</span><button class="cpb">Copy</button>
+          <div class="zh s">[Name] 分享一件很多人不知道的事 👇<br><br>很多人以为离婚的事可以慢慢来，先自己研究再找律师。<br><br>但其实越早找律师，你的选择越多——<br>时间拖得越长，有些法律权利可能会受影响。<br><br>来来咨询，1小时，律师帮你看清楚你的情况和选择。<br>要不要我帮你安排这周的咨询？ ☺️</div>
+          <div class="en">[Name] sharing something many people don't realise 👇<br><br>Many people think divorce matters can wait — research first, then see a lawyer.<br><br>But actually, the earlier you see a lawyer, the more options you have —<br>the longer you wait, certain legal rights may be affected.<br><br>RM200 consultation, 1 hour — the lawyer will help you understand your situation clearly.<br>Want me to arrange a consultation this week? ☺️</div>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tlt">FU3 · +3天 <span class="bdg bdg-gr">人工 10-11am</span></div>
+        <div class="sb" style="margin-top:7px"><span class="sl">FU3</span><button class="cpb">Copy</button>
+          <div class="zh s">[Name] 想到你，发你看看 ☺️<br><br>我们的 RM200 咨询，如果之后委托我们处理，<strong>全额抵扣</strong>服务费。<br><br>等于你花 律师 1 小时告诉你：<br>✅ 你的法律权利<br>✅ 最适合你的方案<br>✅ 大概需要多少费用<br><br>这周还有空档，要不要我帮你安排？ ☺️</div>
+          <div class="en">[Name] thought of you ☺️<br><br>Our RM200 consultation is <strong>fully deductible</strong> if you engage us afterwards.<br><br>So in 1 hour, the lawyer gives you to explain:<br>✅ Your legal rights<br>✅ The best approach for your situation<br>✅ Approximate fees<br><br>Still have slots this week — want me to book one? ☺️</div>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tlt">FU4 · +7天 <span class="bdg bdg-gr">人工</span></div>
+        <div class="sb" style="margin-top:7px"><span class="sl">FU4</span><button class="cpb">Copy</button>
+          <div class="zh s">[Name] 最后联系你一次 ☺️<br><br>如果随时有需要，我们都在这里。<br>律师咨询随时可以安排，1小时。<br><br>有需要的话回复我 ☺️</div>
+          <div class="en">[Name] just reaching out one last time ☺️<br><br>Whenever you're ready, we're here.<br>Lawyer consultation anytime, 1 hour.<br><br>Reply whenever you need us ☺️</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+    <div class="clbl"><div class="dot dr"></div><span class="zh s">FFK · 预约了没来</span><span class="en">No-show</span></div>
+    <div class="tl">
+      <div class="tli">
+        <div class="tld" style="background:var(--ro)"></div>
+        <div class="tlt" style="color:var(--ro)">当天下午</div>
+        <div class="sb sb-r" style="margin-top:7px"><span class="sl sl-r">FFK Same Day</span><button class="cpb">Copy</button>
+          <div class="zh s">[Name] 今天好像没见到你 😊 没关系，临时有事是难免的！<br>要不要我帮你重新安排？这周哪天方便？ ☺️</div>
+          <div class="en">[Name] looks like we missed you today 😊 No worries!<br>Want me to rearrange? Which day this week works? ☺️</div>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tld" style="background:var(--ro)"></div>
+        <div class="tlt" style="color:var(--ro)">+2天</div>
+        <div class="sb sb-r" style="margin-top:7px"><span class="sl sl-r">FFK +2d</span><button class="cpb">Copy</button>
+          <div class="zh s">[Name] 只是想再跟进一下 ☺️<br><br>如果你还有需要，随时可以重新安排。<br>律师这周还有空档，要不要我帮你预留？ ☺️</div>
+          <div class="en">[Name] just following up ☺️<br><br>If you still need help, we can rearrange anytime.<br>Lawyer still has slots this week — want me to reserve one? ☺️</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RULES TAB -->
+  <div class="tab-pane" id="div-rules">
+    <div class="clbl"><div class="dot dr"></div><span class="zh s">🚨 离婚案件 — 绝对禁止</span><span class="en">🚨 Divorce — Absolutely forbidden</span></div>
+    <div class="rc"><div class="ri">❌</div><div><div class="rt"><span class="zh s">在 WA 上给法律意见</span><span class="en">Giving legal advice on WA</span></div><div class="rd"><span class="zh s">不管 lead 问什么——答案永远是："来见律师，律师直接告诉你。"</span><span class="en">No matter what they ask — the answer is always: "Come see the lawyer, lawyer will tell you directly."</span></div></div></div>
+    <div class="rc"><div class="ri">❌</div><div><div class="rt"><span class="zh s">承诺案件结果</span><span class="en">Promising case outcomes</span></div><div class="rd"><span class="zh s">"你一定能拿到监护权"、"你一定能赢"——CS 不是律师，这是法律风险。</span><span class="en">"You'll definitely get custody", "You'll definitely win" — CS is not a lawyer. This is a legal risk.</span></div></div></div>
+    <div class="rc"><div class="ri">❌</div><div><div class="rt"><span class="zh s">报单方面离婚的具体费用</span><span class="en">Quoting contested divorce fees</span></div><div class="rd"><span class="zh s">单方面 range 很大，不要在 WA 报价。只说"要看情况，律师见了才知道"。</span><span class="en">Contested fees vary greatly. Don't quote on WA — say "depends on the case."</span></div></div></div>
+    <div class="div"></div>
+    <div class="clbl"><div class="dot dgn"></div><span class="zh s">✅ 必须做到</span><span class="en">✅ Must do</span></div>
+    <div class="rc" style="border-color:rgba(61,122,90,.2)"><div class="ri">✅</div><div><div class="rt"><span class="zh s">每条消息以问句结尾</span><span class="en">Every message ends with a question</span></div><div class="rd"><span class="zh s">永远以"你明天方便吗？"收尾。没有问句 = 对话停止。</span><span class="en">Always end with "Are you free tomorrow?" No question = conversation dies.</span></div></div></div>
+    <div class="rc" style="border-color:rgba(61,122,90,.2)"><div class="ri">✅</div><div><div class="rt"><span class="zh s">咨询费抵扣每次都说</span><span class="en">Always mention fee deductible</span></div><div class="rd"><span class="zh s">每次提咨询费，都说"委托后全额抵扣"。让 lead 明白咨询不是额外花费。</span><span class="en">Every time you mention the fee, add "fully deductible upon engagement." Make it feel like no extra cost.</span></div></div></div>
+    <div class="rc" style="border-color:rgba(61,122,90,.2)"><div class="ri">✅</div><div><div class="rt"><span class="zh s">难题统一答法</span><span class="en">Standard answer for hard questions</span></div><div class="rd"><span class="zh s">"这个问题很好，不过在 WA 上我没办法给你准确答案——来见律师，律师直接告诉你。"</span><span class="en">"Great question — but I can't give an accurate answer on WA. Come see the lawyer, they'll tell you directly."</span></div></div></div>
+  </div>
+
+</div>
+</div>
+<div id="pg-probate" class="page">
+<div class="gap"></div>
+<div class="sec-t" style="color:var(--go)">📜 <span class="zh s">遗产案件</span><span class="en">Estate Case</span></div>
+<div class="sec-s"><span class="zh s">有 Will (Probate) · 无 Will (LA) · 流程 · FAQ · 跟进</span><span class="en">With Will (Probate) · No Will (LA) · Flow · FAQ · Follow Up</span></div>
+
+<div id="probate-tabs">
+  <div class="tabs">
+    <button class="tab-btn on" data-tab="pro-flow"><span class="zh s">📋 流程</span><span class="en">📋 Flow</span></button>
+    <button class="tab-btn" data-tab="pro-scripts"><span class="zh s">💬 话术</span><span class="en">💬 Scripts</span></button>
+    <button class="tab-btn" data-tab="pro-faq"><span class="zh s">❓ FAQ</span><span class="en">❓ FAQ</span></button>
+    <button class="tab-btn" data-tab="pro-fu"><span class="zh s">🔄 跟进</span><span class="en">🔄 Follow Up</span></button>
+    <button class="tab-btn" data-tab="pro-rules"><span class="zh s">⚠️ 规则</span><span class="en">⚠️ Rules</span></button>
+  </div>
+
+  <!-- FLOW TAB -->
+  <div class="tab-pane on" id="pro-flow">
+    <div class="al al-b" style="margin-bottom:12px"><div class="ali">💡</div><div><span class="zh s"><strong>重要区别：</strong>有 Will → Grant of Probate | 无 Will → Letters of Administration (LA)。两个都接，流程不同。</span>
+
+<div class="card" style="border-left:3px solid var(--go);margin-top:12px">
+  <div class="clbl"><div class="dot dg"></div><span class="zh s">💎 遗产服务 Value Stack — 委托后获得</span><span class="en">💎 Estate Service Value Stack — Upon engagement</span></div>
+  <ul class="cl">
+    <li><span class="zh s">📄 全程文件准备与法庭申请</span><span class="en">📄 Full document preparation and court application</span></li>
+    <li><span class="zh s">👤 专属 Case Manager 全程跟进（主动通知每一个进度）</span><span class="en">👤 Dedicated Case Manager throughout (proactive updates at every stage)</span></li>
+    <li><span class="zh s">🏦 协助处理银行户口、产业、车辆等资产转名</span><span class="en">🏦 Assist with bank accounts, property, vehicle and asset transfer</span></li>
+    <li><span class="zh s">🏛️ 政府部门手续协助（无需自己跑腿）</span><span class="en">🏛️ Government procedure assistance (no need to run errands yourself)</span></li>
+    <li><span class="zh s">💳 Deposit + 尾款，灵活付款方式</span><span class="en">💳 Deposit + balance, flexible payment</span></li>
+    <li><span class="zh s">🔒 固定 Nett 价，无隐藏收费保证</span><span class="en">🔒 Fixed nett price, no hidden fees guaranteed</span></li>
+    <li><span class="zh s">📅 承诺完成时间表</span><span class="en">📅 Committed completion timeline</span></li>
+  </ul>
+</div><span class="en"><strong>Key difference:</strong> With Will → Grant of Probate | No Will → Letters of Administration (LA). Both handled, different process.</span></div></div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot" style="background:var(--bl)"></div><span class="zh s">🤖 Step 1 — Bot 开场（自动发）</span><span class="en">🤖 Step 1 — Bot Opening (auto-send)</span></div>
+      <div class="sb"><span class="sl">Probate Bot Opening</span><button class="cpb">Copy</button>
+        <div class="zh s">您好！我是 KTLC 的 Ashley 👋<br><br>我们专门处理遗产承办事务。<br><br>请问你的情况是：<br><br>A）家人已经去世，他/她有留下 Will（遗嘱）<br>B）家人已经去世，没有 Will<br>C）我想了解 Probate / 遗产处理的流程</div>
+        <div class="en">Hi! I'm Ashley from KTLC 👋<br><br>We specialise in estate administration matters.<br><br>May I ask which situation applies?<br><br>A) My family member has passed, and they left a Will<br>B) My family member has passed, and there is no Will<br>C) I'd like to understand the Probate / estate process</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 2A — 有 Will（Grant of Probate）</span><span class="en">👤 Step 2A — Has Will (Grant of Probate)</span></div>
+      <div class="sb"><span class="sl">Has Will Reply</span><button class="cpb">Copy</button>
+        <div class="zh s">了解了 ☺️<br><br>有 Will 的情况，我们需要向法庭申请 <strong>Grant of Probate</strong>——<br>让 Will 里面指定的 Executor 有法律权力来执行遗嘱。<br><br>整个流程的时间和费用要看资产的种类和数量。<br><br>律师见了你之后可以给你完整的时间线和费用估算。<br><br>我帮你安排 <strong>RM200 咨询</strong>，1小时——<br>律师会解释整个流程和你需要准备的文件 ☺️<br><br>你这周哪天方便过来？</div>
+        <div class="en">Got it ☺️<br><br>With a Will, we apply to court for a <strong>Grant of Probate</strong> —<br>giving the named Executor the legal authority to carry out the estate.<br><br>Timeline and fees depend on the type and amount of assets.<br><br>The lawyer can give you a full timeline and fee estimate after meeting you.<br><br>Let me arrange a <strong>RM200 consultation</strong>, 1 hour —<br>the lawyer will explain the full process and documents needed ☺️<br><br>Which day this week works for you?</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 2B — 没有 Will（Letters of Administration）</span><span class="en">👤 Step 2B — No Will (Letters of Administration)</span></div>
+      <div class="sb"><span class="sl">No Will Reply</span><button class="cpb">Copy</button>
+        <div class="zh s">了解了 ☺️<br><br>没有 Will 的情况，我们处理的是 <strong>Letters of Administration (LA)</strong>——<br>跟 Probate 的流程不一样，但我们同样可以帮你处理。<br><br>LA 需要法庭批准一位家属成为 Administrator，<br>然后按照马来西亚法定继承顺序来分配遗产。<br><br>这个流程我们见过很多次，律师会一步步带你走。<br><br>我帮你安排 <strong>RM200 咨询</strong>，1小时——<br>律师会解释完整流程和费用 ☺️<br><br>你这周哪天方便过来？</div>
+        <div class="en">Got it ☺️<br><br>Without a Will, what we handle is <strong>Letters of Administration (LA)</strong> —<br>a different process from Probate, but we handle both.<br><br>LA requires court approval for a family member to become the Administrator,<br>then the estate is distributed according to Malaysia's statutory inheritance order.<br><br>We've guided many families through this — the lawyer will walk you through every step.<br><br>Let me arrange a <strong>RM200 consultation</strong>, 1 hour —<br>the lawyer will explain the full process and fees ☺️<br><br>Which day this week works?</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+  <div class="sb sb-gn"><span class="sl sl-gn">📅 Booking CTA</span><button class="cpb">Copy</button>
+    <div class="zh s">📍 KTLC — Koh &amp; Teh Law Chamber<br><br>
+<strong>RM200 / 1小时咨询</strong>（线下 KL · Zoom 皆可）<br>
+✅ 委托后咨询费全额抵扣<br><br>
+<strong>这 1 小时，你会得到：</strong><br>
+✔️ 了解你的情况适合走哪条法律途径<br>
+✔️ 清楚整个流程和大概时间线<br>
+✔️ 知道费用范围和付款方式<br>
+✔️ 律师告诉你现在应该做的第一步<br><br>
+Consultation 不代表你一定要马上行动——主要是让你先清楚自己的选择。<br><br>
+你<strong>明天下午 2pm</strong> 方便吗？还是<strong>后天上午</strong>比较好？ ☺️</div>
+    <div class="en">📍 KTLC — Koh &amp; Teh Law Chamber<br><br>💻 <strong>📍 KTLC — Koh &amp; Teh Law Chamber<br><br>
+<strong>RM200 / 1 hour consultation</strong> (In-person KL · Zoom available)<br>
+✅ Fully deductible upon engagement<br><br>
+<strong>In this 1 hour, you will get:</strong><br>
+✔️ Understand which legal route fits your situation<br>
+✔️ Full clarity on the process and timeline<br>
+✔️ Know the fee range and payment options<br>
+✔️ The lawyer tells you the exact first step to take<br><br>
+Consultation doesn't mean you have to act immediately — it's mainly so you understand your options clearly.<br><br>
+Are you free <strong>tomorrow at 2pm</strong>? Or would <strong>the morning after</strong> work better? ☺️</div>
+  </div>
+</div>
+  </div>
+
+  <!-- SCRIPTS TAB -->
+  <div class="tab-pane" id="pro-scripts">
+    <div class="card">
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">如果继续问法律/流程问题</span><span class="en">If they keep asking legal/process questions</span></div>
+      <div class="card">
+  <div class="sb sb-r"><span class="sl sl-r">❓ 如果继续问法律问题</span><button class="cpb">Copy</button>
+    <div class="zh s">这个问题很好，不过坦白说，我在 WA 上没办法给你准确答案——每个案件情况都不一样 ☺️<br><br>在这里解释，我怕反而误导你。<br>最好来见律师，把你的情况说清楚，律师才能给你真正正确的建议。<br><br>RM200 咨询，1小时，委托后可抵扣。你明天方便过来吗？ ☺️</div>
+    <div class="en">That's a great question — but honestly, I can't give you an accurate answer on WA, as every case is different ☺️<br><br>Explaining here might actually mislead you.<br>The best approach is to come see the lawyer, explain your situation, and get truly accurate advice.<br><br>RM200 consultation, 1 hour, deductible upon engagement. Are you free tomorrow? ☺️</div>
+  </div>
+</div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">"费用大概多少？"</span><span class="en">"How much does it cost?"</span></div>
+      <div class="sb sb-r"><span class="sl sl-r">Probate Fee</span><button class="cpb">Copy</button>
+        <div class="zh s">Probate / LA 的费用主要看遗产的总值和资产种类 ☺️<br><br>Zoom RM200 / 线下 律师见了你之后给你准确的估算。<br>委托我们的话，这个咨询费可以全额抵扣 ☺️</div>
+        <div class="en">Probate / LA fees mainly depend on the total estate value and asset types ☺️<br><br>RM200 consultation — the lawyer will give you an accurate estimate after meeting you.<br>Fully deductible if you engage us ☺️</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">"我们有几兄弟姐妹，谁来处理？"</span><span class="en">"We have multiple siblings, who handles it?"</span></div>
+      <div class="sb sb-r"><span class="sl sl-r">Multiple Beneficiaries</span><button class="cpb">Copy</button>
+        <div class="zh s">这是很多家庭会遇到的问题 ☺️<br><br>理论上任何受益人都可以申请成为 Administrator——<br>但通常建议由一到两位家属代表来做，避免日后纷争。<br><br>具体怎么安排，律师见了你们才能给最合适的建议 ☺️<br><br>要不要先来咨询？1小时。</div>
+        <div class="en">This is something many families face ☺️<br><br>In theory, any beneficiary can apply to become Administrator —<br>but it's usually recommended that one or two family members handle it to avoid future disputes.<br><br>The lawyer can advise on the best arrangement after meeting your family ☺️<br><br>Would you like to come for a consultation (RM200 线下 / RM200 Zoom).</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+  <div class="sb sb-gn"><span class="sl sl-gn">📅 Booking CTA</span><button class="cpb">Copy</button>
+    <div class="zh s">📍 KTLC — Koh &amp; Teh Law Chamber<br><br>
+<strong>RM200 / 1小时咨询</strong>（线下 KL · Zoom 皆可）<br>
+✅ 委托后咨询费全额抵扣<br><br>
+<strong>这 1 小时，你会得到：</strong><br>
+✔️ 了解你的情况适合走哪条法律途径<br>
+✔️ 清楚整个流程和大概时间线<br>
+✔️ 知道费用范围和付款方式<br>
+✔️ 律师告诉你现在应该做的第一步<br><br>
+Consultation 不代表你一定要马上行动——主要是让你先清楚自己的选择。<br><br>
+你<strong>明天下午 2pm</strong> 方便吗？还是<strong>后天上午</strong>比较好？ ☺️</div>
+    <div class="en">📍 KTLC — Koh &amp; Teh Law Chamber<br><br>💻 <strong>📍 KTLC — Koh &amp; Teh Law Chamber<br><br>
+<strong>RM200 / 1 hour consultation</strong> (In-person KL · Zoom available)<br>
+✅ Fully deductible upon engagement<br><br>
+<strong>In this 1 hour, you will get:</strong><br>
+✔️ Understand which legal route fits your situation<br>
+✔️ Full clarity on the process and timeline<br>
+✔️ Know the fee range and payment options<br>
+✔️ The lawyer tells you the exact first step to take<br><br>
+Consultation doesn't mean you have to act immediately — it's mainly so you understand your options clearly.<br><br>
+Are you free <strong>tomorrow at 2pm</strong>? Or would <strong>the morning after</strong> work better? ☺️</div>
+  </div>
+</div>
+  </div>
+
+  <!-- FAQ TAB -->
+  <div class="tab-pane" id="pro-faq">
+    <div class="oc">
+      <div class="oq"><span class="zh s">没有 Will 可以处理吗？</span><span class="en">Can you handle cases without a Will?</span></div>
+      <div style="padding:0 12px 12px">
+        <div class="sb sb-g"><span class="sl">No Will</span><button class="cpb">Copy</button>
+          <div class="zh s">可以的 ☺️<br><br>没有 Will 的情况叫做 <strong>Letters of Administration (LA)</strong>，我们同样可以帮你处理。<br><br>LA 的流程跟有 Will 的 Probate 不一样——需要法庭批准一位家属成为 Administrator，然后按照法定继承顺序分配遗产。<br><br>来见律师，1小时，律师会解释完整流程 ☺️</div>
+          <div class="en">Yes, absolutely ☺️<br><br>Without a Will, the process is called <strong>Letters of Administration (LA)</strong> — we handle this too.<br><br>LA differs from Probate — it requires court approval for a family member to become Administrator, then distributes assets per statutory order.<br><br>Come see the lawyer, 1 hour, full process explained ☺️</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oc">
+      <div class="oq"><span class="zh s">需要多久？</span><span class="en">How long does it take?</span></div>
+      <div style="padding:0 12px 12px">
+        <div class="sb sb-g"><span class="sl">Timeline</span><button class="cpb">Copy</button>
+          <div class="zh s">一般来说 ☺️<br><br>• 有 Will 的 Probate：大约 <strong>6–12 个月</strong><br>• 没有 Will 的 LA：通常稍微长一点<br><br>但这也要看资产的复杂程度和法庭排期。<br>律师咨询的时候会给你更准确的时间线 ☺️</div>
+          <div class="en">Generally ☺️<br><br>• Probate with Will: approximately <strong>6–12 months</strong><br>• LA without Will: usually a bit longer<br><br>Also depends on asset complexity and court scheduling.<br>The lawyer will give a more accurate timeline during consultation ☺️</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oc">
+      <div class="oq"><span class="zh s">咨询费可以免费吗？</span><span class="en">Can the consultation be free?</span></div>
+      <div style="padding:0 12px 12px">
+        <div class="sb sb-g"><span class="sl">Free Consult</span><button class="cpb">Copy</button>
+          <div class="zh s">我们的咨询是 RM200（线下）/ RM200（Zoom） ☺️<br><br>如果之后委托我们，咨询费会<strong>全额抵扣</strong>服务费——等于你一分钱都没多花。<br><br>1 小时里律师会告诉你整个流程、需要的文件、大概费用，对你做决定非常有帮助 ☺️</div>
+          <div class="en">Our consultation is RM200 (in-person) / RM200 (Zoom) ☺️<br><br>If you engage us afterwards, the consultation fee is <strong>fully deducted</strong> from the service fee — so you pay nothing extra.<br><br>In that 1 hour the lawyer explains the full process, required documents, and approximate fees — very helpful for your decision ☺️</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oc">
+      <div class="oq"><span class="zh s">家人的资产很多/很复杂怎么办？</span><span class="en">What if the estate is large or complicated?</span></div>
+      <div style="padding:0 12px 12px">
+        <div class="sb sb-g"><span class="sl">Complex Estate</span><button class="cpb">Copy</button>
+          <div class="zh s">没关系，我们处理过各种复杂程度的案件 ☺️<br><br>资产越多越复杂，越需要律师帮你正确处理——避免日后家庭纠纷或法律问题。<br><br>Zoom RM200 / 线下 律师了解了你的情况后会告诉你最好的处理方式 ☺️</div>
+          <div class="en">No problem — we've handled cases of all complexity levels ☺️<br><br>The larger and more complex the estate, the more important it is to have a lawyer handle it properly — to avoid future family disputes or legal issues.<br><br>RM200 consultation — the lawyer will advise on the best approach after understanding your situation ☺️</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOLLOW UP TAB -->
+  <div class="tab-pane" id="pro-fu">
+    <div class="clbl"><div class="dot dg"></div><span class="zh s">没预约的 Leads</span><span class="en">Leads who haven't booked</span></div>
+    <div class="tl">
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tlt">FU1 · +3小时 <span class="bdg bdg-gr">人工</span></div>
+        <div class="sb" style="margin-top:7px"><span class="sl">FU1</span><button class="cpb">Copy</button>
+          <div class="zh s">[Name] 你好 ☺️ 如果还有任何问题，随时可以问我。<br><br>律师这周还有咨询空档，要不要我帮你预留一个时间？</div>
+          <div class="en">[Name] hi ☺️ Feel free to ask if you have more questions.<br><br>The lawyer still has slots this week — want me to reserve a time?</div>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tlt">FU2 · +1天 <span class="bdg bdg-gr">人工 10-11am</span></div>
+        <div class="sb" style="margin-top:7px"><span class="sl">FU2</span><button class="cpb">Copy</button>
+          <div class="zh s">[Name] 分享一件很多家庭不知道的事 👇<br><br>遗产处理拖得越久，问题越多——<br>有些资产会被冻结，家庭成员之间可能产生纠纷，某些权利也可能受影响。<br><br>越早找律师处理，对所有家庭成员越好。<br><br>来来咨询，1小时，律师帮你理清楚该怎么做。<br>要不要我帮你安排这周？ ☺️</div>
+          <div class="en">[Name] sharing something many families don't realise 👇<br><br>The longer estate matters are left unresolved, the more complications arise —<br>assets can be frozen, family disputes can develop, and certain rights may be affected.<br><br>The earlier a lawyer is involved, the better for everyone.<br><br>RM200 consultation, 1 hour — the lawyer will help you understand what needs to be done.<br>Want me to arrange something this week? ☺️</div>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tlt">FU3 · +3天 <span class="bdg bdg-gr">人工 10-11am</span></div>
+        <div class="sb" style="margin-top:7px"><span class="sl">FU3</span><button class="cpb">Copy</button>
+          <div class="zh s">[Name] 想到你，发你看看 ☺️<br><br>我们的 RM200 咨询，如果之后委托我们，<strong>全额抵扣</strong>服务费。<br><br>1 小时，律师帮你搞清楚：<br>✅ 整个流程怎么走<br>✅ 需要准备什么文件<br>✅ 大概需要多少费用和时间<br><br>这周还有空档，要不要我帮你安排？ ☺️</div>
+          <div class="en">[Name] thought of you ☺️<br><br>Our RM200 consultation is <strong>fully deductible</strong> if you engage us afterwards.<br><br>1 hour, the lawyer helps you understand:<br>✅ The full process step by step<br>✅ What documents are needed<br>✅ Approximate fees and timeline<br><br>Still have slots this week — want me to book one? ☺️</div>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tlt">FU4 · +7天 <span class="bdg bdg-gr">人工</span></div>
+        <div class="sb" style="margin-top:7px"><span class="sl">FU4</span><button class="cpb">Copy</button>
+          <div class="zh s">[Name] 最后联系你一次 ☺️<br><br>随时有需要，我们都在这里。<br>律师咨询随时可以安排，1小时。<br><br>有需要的话回复我 ☺️</div>
+          <div class="en">[Name] last follow up ☺️<br><br>Whenever you're ready, we're here.<br>Lawyer consultation anytime, 1 hour.<br><br>Reply whenever you need ☺️</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+    <div class="clbl"><div class="dot dr"></div><span class="zh s">FFK · 预约了没来</span><span class="en">No-show</span></div>
+    <div class="tl">
+      <div class="tli">
+        <div class="tld" style="background:var(--ro)"></div>
+        <div class="tlt" style="color:var(--ro)">当天下午</div>
+        <div class="sb sb-r" style="margin-top:7px"><span class="sl sl-r">FFK Same Day</span><button class="cpb">Copy</button>
+          <div class="zh s">[Name] 今天好像没见到你 😊 没关系，临时有事是难免的！<br>要不要我帮你重新安排？这周哪天方便？ ☺️</div>
+          <div class="en">[Name] looks like we missed you today 😊 No worries!<br>Want me to rearrange? Which day this week? ☺️</div>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tld" style="background:var(--ro)"></div>
+        <div class="tlt" style="color:var(--ro)">+2天</div>
+        <div class="sb sb-r" style="margin-top:7px"><span class="sl sl-r">FFK +2d</span><button class="cpb">Copy</button>
+          <div class="zh s">[Name] 只是想再跟进一下 ☺️<br><br>随时可以重新安排，律师这周还有空档。<br>要不要我帮你预留？ ☺️</div>
+          <div class="en">[Name] just following up ☺️<br><br>We can rearrange anytime, lawyer still has slots this week.<br>Want me to reserve one? ☺️</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RULES TAB -->
+  <div class="tab-pane" id="pro-rules">
+    <div class="clbl"><div class="dot dr"></div><span class="zh s">🚨 遗产案件 — 绝对禁止</span><span class="en">🚨 Estate — Absolutely forbidden</span></div>
+    <div class="rc"><div class="ri">❌</div><div><div class="rt"><span class="zh s">在 WA 上解释遗产分配</span><span class="en">Explaining estate distribution on WA</span></div><div class="rd"><span class="zh s">Lead 问"我应该分到多少"、"他们可以这样做吗"——不要答。引导来见律师。</span><span class="en">Lead asks "how much should I get", "can they do that" — don't answer. Guide to see the lawyer.</span></div></div></div>
+    <div class="rc"><div class="ri">❌</div><div><div class="rt"><span class="zh s">混淆 Probate 和 LA</span><span class="en">Confusing Probate and LA</span></div><div class="rd"><span class="zh s">有 Will = Probate。没有 Will = Letters of Administration。两个不一样，不要搞混。</span><span class="en">With Will = Probate. No Will = Letters of Administration. They are different — don't mix them up.</span></div></div></div>
+    <div class="rc"><div class="ri">❌</div><div><div class="rt"><span class="zh s">承诺遗产分配结果</span><span class="en">Promising estate distribution outcomes</span></div><div class="rd"><span class="zh s">"你一定能拿到那个房子"——CS 不是律师，不能承诺任何结果。</span><span class="en">"You'll definitely get the house" — CS is not a lawyer, cannot promise any outcome.</span></div></div></div>
+    <div class="div"></div>
+    <div class="clbl"><div class="dot dgn"></div><span class="zh s">✅ 必须做到</span><span class="en">✅ Must do</span></div>
+    <div class="rc" style="border-color:rgba(61,122,90,.2)"><div class="ri">✅</div><div><div class="rt"><span class="zh s">每条消息以问句结尾</span><span class="en">Every message ends with a question</span></div><div class="rd"><span class="zh s">永远以"这周哪天方便？"收尾。没有问句 = 对话停止。</span><span class="en">Always end with "Which day this week works?" No question = conversation dies.</span></div></div></div>
+    <div class="rc" style="border-color:rgba(61,122,90,.2)"><div class="ri">✅</div><div><div class="rt"><span class="zh s">咨询费抵扣每次都说</span><span class="en">Always mention fee deductible</span></div><div class="rd"><span class="zh s">"委托后全额抵扣"——让 lead 觉得咨询费不是额外支出。</span><span class="en">"Fully deductible upon engagement" — make the consultation feel like no extra cost.</span></div></div></div>
+    <div class="rc" style="border-color:rgba(61,122,90,.2)"><div class="ri">✅</div><div><div class="rt"><span class="zh s">情况复杂 → 更要来见律师</span><span class="en">Complex situation → Even more reason to see lawyer</span></div><div class="rd"><span class="zh s">"正因为情况复杂，更需要律师当面帮你分析——WA 上说不清楚，来见律师才能给你最准确的建议。"</span><span class="en">"Precisely because it's complex, you need the lawyer in person — hard to explain fully on WA, face-to-face gives the most accurate advice."</span></div></div></div>
+  </div>
+
+</div>
+</div>
+</div>
+
+<div id="navbar">
+  <button class="nb on" data-pg="pg-home"><span class="nb-i">🏠</span><span class="zh s">主页</span><span class="en">Home</span></button>
+  <button class="nb" data-pg="pg-divorce"><span class="nb-i">💍</span><span class="zh s">离婚</span><span class="en">Divorce</span></button>
+  <button class="nb" data-pg="pg-probate"><span class="nb-i">📜</span><span class="zh s">遗产</span><span class="en">Estate</span></button>
+</div>
+
+<script>
+
+var lg = 'zh';
+
+function goPage(pid) {
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('on'); });
+  document.querySelectorAll('.nb').forEach(function(b) { b.classList.remove('on'); });
+  var pg = document.getElementById(pid);
+  if (pg) pg.classList.add('on');
+  document.querySelectorAll('.nb').forEach(function(b) {
+    if (b.getAttribute('data-pg') === pid) b.classList.add('on');
+  });
+  var ct = document.getElementById('content');
+  if (ct) ct.scrollTop = 0;
+}
+
+function switchTab(groupId, tabId) {
+  var group = document.getElementById(groupId);
+  if (!group) return;
+  group.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('on'); });
+  group.querySelectorAll('.tab-pane').forEach(function(p) { p.classList.remove('on'); });
+  var btn = group.querySelector('[data-tab="' + tabId + '"]');
+  var pane = document.getElementById(tabId);
+  if (btn) btn.classList.add('on');
+  if (pane) pane.classList.add('on');
+}
+
+function setLang(l) {
+  lg = l;
+  document.querySelectorAll('.zh').forEach(function(e) { e.classList.toggle('s', l === 'zh'); });
+  document.querySelectorAll('.en').forEach(function(e) { e.classList.toggle('s', l === 'en'); });
+  var bz = document.getElementById('btnZH');
+  var be = document.getElementById('btnEN');
+  if (bz) bz.classList.toggle('on', l === 'zh');
+  if (be) be.classList.toggle('on', l === 'en');
+}
+
+function doCopy(btn) {
+  var box = btn.closest('.sb');
+  if (!box) return;
+  var sel = lg === 'en' ? '.en.s' : '.zh.s';
+  var src = box.querySelector(sel) || box;
+  var cl = src.cloneNode(true);
+  cl.querySelectorAll('.sl,.cpb,.al,.note').forEach(function(e) { e.remove(); });
+  var t = (cl.innerText || cl.textContent).trim().replace(/\n{3,}/g, '\n\n');
+  navigator.clipboard.writeText(t).then(function() {
+    var orig = btn.textContent;
+    btn.textContent = '✓ Copied';
+    setTimeout(function() { btn.textContent = orig; }, 2000);
+  }).catch(function() {});
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  setLang('zh');
+  document.getElementById('goHome').addEventListener('click', function() { goPage('pg-home'); });
+  document.getElementById('btnZH').addEventListener('click', function() { setLang('zh'); });
+  document.getElementById('btnEN').addEventListener('click', function() { setLang('en'); });
+  document.querySelectorAll('.nb').forEach(function(btn) {
+    btn.addEventListener('click', function() { goPage(this.getAttribute('data-pg')); });
+  });
+  document.querySelectorAll('.qa').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var pg = this.getAttribute('data-pg');
+      var tab = this.getAttribute('data-tab');
+      goPage(pg);
+      if (tab) {
+        var grp = this.getAttribute('data-grp');
+        if (grp) switchTab(grp, tab);
+      }
+    });
+  });
+  document.querySelectorAll('.cpb').forEach(function(btn) {
+    btn.addEventListener('click', function() { doCopy(this); });
+  });
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var grp = this.closest('[id]');
+      if (grp) switchTab(grp.id, this.getAttribute('data-tab'));
+    });
+  });
+});
+
+</script>
+</body>
+</html>

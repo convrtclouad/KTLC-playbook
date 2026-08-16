@@ -318,26 +318,15 @@ span.en { display: none; } span.en.s { display: inline; }
     <button class="tab-btn" data-tab="div-faq"><span class="zh s">❓ FAQ</span><span class="en">❓ FAQ</span></button>
     <button class="tab-btn" data-tab="div-fu"><span class="zh s">🔄 跟进</span><span class="en">🔄 Follow Up</span></button>
     <button class="tab-btn" data-tab="div-rules"><span class="zh s">⚠️ 规则</span><span class="en">⚠️ Rules</span></button>
+    <button class="tab-btn" data-tab="div-ai"><span class="zh s">🤖 AI 助手</span><span class="en">🤖 AI</span></button>
   </div>
+
 
   <!-- FLOW TAB -->
   <div class="tab-pane on" id="div-flow">
-    <div class="al al-b" style="margin-bottom:12px"><div class="ali">🎯</div><div><span class="zh s">目标只有一个：预约面见律师。不要在 WA 给任何法律意见。</span><span class="en">One goal: book the lawyer consultation. Never give legal advice on WA.</span></div></div>
+    <div class="al al-b" style="margin-bottom:12px"><div class="ali">🎯</div><div><span class="zh s">目标只有一个：让 lead 付 RM200 预约 Case Assessment。不要在 WA 给法律意见。</span><span class="en">One goal: get lead to pay RM200 and book Case Assessment. Never give legal advice on WA.</span></div></div>
 
-<div class="card" style="border-left:3px solid var(--go);margin-bottom:14px">
-  <div class="clbl"><div class="dot dg"></div><span class="zh s">💎 离婚服务 Value Stack — 委托后获得</span><span class="en">💎 Divorce Service Value Stack — Upon engagement</span></div>
-  <ul class="cl">
-    <li><span class="zh s">📄 全程文件准备与法庭提呈</span><span class="en">📄 Full document preparation and court filing</span></li>
-    <li><span class="zh s">👤 专属 Case Manager 全程跟进（有专人主动通知每一个进度）</span><span class="en">👤 Dedicated Case Manager throughout (proactive updates at every stage)</span></li>
-    <li><span class="zh s">🏛️ JPN 更新协助（不需要自己处理政府部门手续）</span><span class="en">🏛️ JPN update assistance (no need to handle government procedures yourself)</span></li>
-    <li><span class="zh s">📝 协议书起草与审核</span><span class="en">📝 Agreement drafting and review</span></li>
-    <li><span class="zh s">💳 Deposit + 尾款，灵活分期付款</span><span class="en">💳 Deposit + balance, flexible instalment payment</span></li>
-    <li><span class="zh s">🔒 固定 Nett 价，无隐藏收费保证</span><span class="en">🔒 Fixed nett price, no hidden fees guaranteed</span></li>
-    <li><span class="zh s">📅 承诺完成时间表</span><span class="en">📅 Committed completion timeline</span></li>
-  </ul>
-  <div class="al al-g" style="margin-top:10px"><div class="ali">💬</div><div><span class="zh s"><em>"客户感受到的不是'我在付钱办离婚'，而是'我请了一个把整件事扛下来的团队'。"</em></span><span class="en"><em>"Clients feel not 'I'm paying to get a divorce' but 'I've hired a team that handles everything for me.'"</em></span></div></div>
-</div>
-
+    <!-- STEP 1: BOT -->
     <div class="card">
       <div class="clbl"><div class="dot" style="background:var(--bl)"></div><span class="zh s">🤖 Step 1 — Bot 开场（自动发）</span><span class="en">🤖 Step 1 — Bot Opening (auto-send)</span></div>
       <div class="sb"><span class="sl">Bot Opening</span><button class="cpb">Copy</button>
@@ -346,59 +335,163 @@ span.en { display: none; } span.en.s { display: inline; }
       </div>
     </div>
 
+    <!-- STEP 2: MINI DIAGNOSIS -->
     <div class="card">
-      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 2A — Lead 选了 A（双方同意）</span><span class="en">👤 Step 2A — Lead chose A (Mutual)</span></div>
-      <div class="al al-g" style="margin-bottom:8px"><div class="ali">💡</div><div><span class="zh s">双方同意，起步 RM5,000。有没有孩子、共同资产会影响最终费用。</span><span class="en">Mutual divorce, starts from RM5,000. Children, joint assets affect final fee.</span></div></div>
-      <div class="sb"><span class="sl">Mutual Reply</span><button class="cpb">Copy</button>
-        <div class="zh s">明白了 ☺️<br><br>双方同意的情况，还是需要律师来处理整个流程——文件、协议书、法庭提呈都需要正确进行。<br><br>不过每个案件都有自己的细节——<br>有没有孩子？有没有共同资产？<br>这些会影响整个流程和时间线。<br><br>律师见了你才能给你最准确的建议。<br><br>我帮你安排跟律师的 <strong>RM200 咨询</strong>，1小时。<br>如果之后委托我们，咨询费全额抵扣 ☺️<br><br>你明天方便过来吗？几点比较好？</div>
-        <div class="en">Got it ☺️<br><br>When both parties agree, the process tends to be smoother — we've handled many similar cases.<br><br>However every case has its own details —<br>Are there children? Any joint assets?<br>These affect the overall process and timeline.<br><br>The lawyer can give the most accurate advice after meeting you.<br><br>Let me arrange a <strong>RM200 consultation</strong>, 1 hour.<br>If you engage us, the consultation fee is fully deductible ☺️<br><br>Are you free tomorrow? What time works?</div>
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 2 — Mini Diagnosis（CS 接手，问 3-4 个问题）</span><span class="en">👤 Step 2 — Mini Diagnosis (CS takes over, ask 3-4 questions)</span></div>
+      <div class="al al-g" style="margin-bottom:8px"><div class="ali">💡</div><div><span class="zh s">目的不是收集资料，是让 lead <strong>说出自己的痛</strong>。说得越多，他越需要答案。一次问一个，不要一次过问完。</span><span class="en">The goal isn't to collect info — it's to get the lead to <strong>articulate their pain</strong>. The more they say, the more they need answers. Ask one at a time.</span></div></div>
+
+      <div class="sb"><span class="sl">Q1 — 开场接手</span><button class="cpb">Copy</button>
+        <div class="zh s">了解了 ☺️ 你们现在大概是什么情况？方便说一下吗？</div>
+        <div class="en">Got it ☺️ What's your current situation roughly? Would you like to share a bit?</div>
+      </div>
+      <div class="sb" style="margin-top:8px"><span class="sl">Q2 — 婚姻年限 + 孩子</span><button class="cpb">Copy</button>
+        <div class="zh s">结婚多少年了？你们有孩子吗？</div>
+        <div class="en">How long have you been married? Do you have children?</div>
+      </div>
+      <div class="sb" style="margin-top:8px"><span class="sl">Q3 — 资产</span><button class="cpb">Copy</button>
+        <div class="zh s">你们有共同的资产吗？比如房子、车子、或者共同存款？</div>
+        <div class="en">Do you have any joint assets? For example, a house, car, or joint savings?</div>
+      </div>
+      <div class="sb" style="margin-top:8px"><span class="sl">Q4 — 沟通状况</span><button class="cpb">Copy</button>
+        <div class="zh s">你有没有试过跟对方谈过？他/她的态度是怎样的？</div>
+        <div class="en">Have you tried talking to your spouse about this? What's their attitude like?</div>
       </div>
     </div>
 
+    <!-- STEP 3: SETTER SUMMARY -->
     <div class="card">
-      <div class="clbl"><div class="dot dr"></div><span class="zh s">👤 Step 2B — Lead 选了 B（单方面）</span><span class="en">👤 Step 2B — Lead chose B (Contested)</span></div>
-      <div class="al al-r" style="margin-bottom:8px"><div class="ali">⚠️</div><div><span class="zh s">单方面费用 range 很大，不要在 WA 报价。引导来咨询。</span><span class="en">Contested fees vary greatly — don't quote on WA. Guide to consultation.</span></div></div>
-      <div class="sb"><span class="sl">Contested Reply</span><button class="cpb">Copy</button>
-        <div class="zh s">明白，这种情况跟双方已经同意离婚的处理方式会不太一样 ☺️<br><br>单方面离婚需要经过法庭，时间和费用会根据你的情况而定。<br><br>对方的态度、有没有孩子、资产分配——这些都会影响案件的走向。<br><br>我可以先帮你安排一个 consultation，你把整个情况跟律师说明，会比我们在这里猜测准确很多 ☺️<br><br>Consultation 不代表你一定要马上行动——主要是让你先知道自己有什么选择和下一步。</div>
-        <div class="en">Got it, we've seen this situation many times ☺️<br><br>A contested divorce goes through court, and the time and fees depend on your specific situation.<br><br>Your spouse's attitude, whether there are children, asset division — all of these affect how the case unfolds.<br><br>In this situation, the most important thing is to understand your legal rights as soon as possible.<br><br>Let me arrange a <strong>RM200 consultation</strong>, 1 hour.<br>The lawyer will analyse your situation and advise on the best next steps ☺️<br><br>Are you free tomorrow?</div>
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 3 — Setter Summary（重复他的情况，让他感觉被理解）</span><span class="en">👤 Step 3 — Setter Summary (repeat their situation back to them)</span></div>
+      <div class="al al-g" style="margin-bottom:8px"><div class="ali">💡</div><div><span class="zh s">把他说的总结一遍，用他的原话。这一步让 lead 觉得"你真的在听"，不是在走程序。</span><span class="en">Summarise what they said using their own words. This makes the lead feel heard, not processed.</span></div></div>
+      <div class="sb"><span class="sl">Setter Summary</span><button class="cpb">Copy</button>
+        <div class="zh s">好，让我确认一下你的情况——<br><br>你们结婚 [X 年]，[有/没有] 孩子，[有/没有] 共同资产，然后 [对方的态度]。<br><br>我说的对吗？</div>
+        <div class="en">Okay, let me confirm your situation —<br><br>You've been married for [X years], [have/don't have] children, [have/don't have] joint assets, and your spouse [attitude].<br><br>Did I get that right?</div>
       </div>
     </div>
 
+    <!-- STEP 4: CREATE GAP -->
     <div class="card">
-      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 2C — Lead 选了 C（想了解）</span><span class="en">👤 Step 2C — Lead chose C (Enquiring)</span></div>
-      <div class="sb"><span class="sl">Enquiry Reply</span><button class="cpb">Copy</button>
-        <div class="zh s">明白 ☺️<br><br>离婚有几种不同的途径，适合哪一种要看你的实际情况。<br><br>你的情况需要律师来了解，才能告诉你有哪些选择——<br>在这里我没办法给你准确的建议。<br><br>Consultation 不代表你一定要马上进行离婚，<br>主要是让你先清楚自己的选择和下一步怎么走。<br><br>我帮你安排，律师见了你之后直接告诉你。</div>
-        <div class="en">Understood ☺️<br><br>There are several different divorce routes, and which one applies depends on your actual situation.<br><br>Your situation needs a lawyer to understand properly before anyone can tell you what options you have —<br>I'm not in a position to give you accurate advice here.<br><br>Consultation doesn't mean you have to proceed with divorce immediately —<br>it's mainly so you understand your options and what the next step looks like.<br><br>Let me arrange it — the lawyer will tell you directly after meeting you.</div>
+      <div class="clbl"><div class="dot dr"></div><span class="zh s">👤 Step 4 — Create Gap（让他意识到不处理的代价）</span><span class="en">👤 Step 4 — Create Gap (make them realise the cost of not acting)</span></div>
+      <div class="al al-r" style="margin-bottom:8px"><div class="ali">⚠️</div><div><span class="zh s">不要威胁，要说事实。目的是让他感觉到"拖着不处理对我不利"。根据他的情况选最相关的。</span><span class="en">Don't threaten — state facts. The goal is to make them feel "not acting puts me at a disadvantage." Pick the most relevant version.</span></div></div>
+
+      <div class="sb sb-r" style="margin-bottom:8px"><span class="sl sl-r">有孩子版本</span><button class="cpb">Copy</button>
+        <div class="zh s">像你这种情况，很多人拖着不处理——结果孩子的监护权问题一直没有法律保障，时间拖得越长，对方越容易站稳立场。<br><br>越早了解你的选择，你能保护的东西越多。</div>
+        <div class="en">In situations like yours, many people delay — and the children's custody ends up without legal protection, while the longer it drags, the more your spouse can entrench their position.<br><br>The earlier you understand your options, the more you can protect.</div>
+      </div>
+      <div class="sb sb-r" style="margin-bottom:8px"><span class="sl sl-r">有资产版本</span><button class="cpb">Copy</button>
+        <div class="zh s">像你这种情况，有共同资产的话，拖着不处理，资产方面会越来越复杂——尤其是对方如果开始转移资产，你之后要追回来会更困难。<br><br>越早了解你的权利，你能保护的越多。</div>
+        <div class="en">In situations like yours with joint assets, delaying makes things more complicated — especially if your spouse starts moving assets, it becomes much harder to recover them later.<br><br>The earlier you know your rights, the more you can protect.</div>
+      </div>
+      <div class="sb sb-r"><span class="sl sl-r">通用版本</span><button class="cpb">Copy</button>
+        <div class="zh s">像你这种情况，很多人以为可以慢慢来——但其实越拖越难处理，对方也有时间做准备。<br><br>越早了解你的选择和权利，对你越有利。</div>
+        <div class="en">In situations like yours, many people think they can take their time — but actually the longer you wait, the harder it gets, and your spouse has more time to prepare.<br><br>The earlier you understand your options and rights, the better positioned you are.</div>
       </div>
     </div>
 
-    <div class="card" style="margin-top:10px">
-  <div class="sb sb-gn"><span class="sl sl-gn">📅 Booking CTA</span><button class="cpb">Copy</button>
-    <div class="zh s">📍 KTLC — Koh &amp; Teh Law Chamber<br><br>
-<strong>RM200 / 1小时咨询</strong>（线下 KL · Zoom 皆可）<br>
-✅ 委托后咨询费全额抵扣<br><br>
-<strong>这 1 小时，你会得到：</strong><br>
-✔️ 了解你的情况适合走哪条法律途径<br>
-✔️ 清楚整个流程和大概时间线<br>
-✔️ 知道费用范围和付款方式<br>
-✔️ 律师告诉你现在应该做的第一步<br><br>
-Consultation 不代表你一定要马上行动——主要是让你先清楚自己的选择。<br><br>
-你<strong>明天下午 2pm</strong> 方便吗？还是<strong>后天上午</strong>比较好？ ☺️</div>
-    <div class="en">📍 KTLC — Koh &amp; Teh Law Chamber<br><br>💻 <strong>📍 KTLC — Koh &amp; Teh Law Chamber<br><br>
-<strong>RM200 / 1 hour consultation</strong> (In-person KL · Zoom available)<br>
-✅ Fully deductible upon engagement<br><br>
-<strong>In this 1 hour, you will get:</strong><br>
-✔️ Understand which legal route fits your situation<br>
-✔️ Full clarity on the process and timeline<br>
-✔️ Know the fee range and payment options<br>
-✔️ The lawyer tells you the exact first step to take<br><br>
-Consultation doesn't mean you have to act immediately — it's mainly so you understand your options clearly.<br><br>
-Are you free <strong>tomorrow at 2pm</strong>? Or would <strong>the morning after</strong> work better? ☺️</div>
+    <!-- STEP 5: PRESENT CASE ASSESSMENT -->
+    <div class="card">
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 5 — Present Case Assessment（frame 咨询为评估，不是推销）</span><span class="en">👤 Step 5 — Present Case Assessment (frame consult as assessment, not sales)</span></div>
+      <div class="sb"><span class="sl">Case Assessment Pitch</span><button class="cpb">Copy</button>
+        <div class="zh s">所以我想帮你安排一个 <strong>Case Assessment</strong> 跟律师。<br><br>不是叫你马上决定要不要离婚——<br>主要是律师直接看你的情况，告诉你：<br><br>✔️ 你有哪些法律选择<br>✔️ 整个流程和时间线<br>✔️ 你现在应该做的第一步<br><br>你自己掌握了这些信息，才能做最好的决定。</div>
+        <div class="en">So I'd like to arrange a <strong>Case Assessment</strong> with the lawyer for you.<br><br>This isn't asking you to decide on divorce right now —<br>the lawyer will review your situation directly and tell you:<br><br>✔️ What legal options you have<br>✔️ The full process and timeline<br>✔️ The first step you should take right now<br><br>Once you have this information, you can make the best decision for yourself.</div>
+      </div>
+    </div>
+
+    <!-- STEP 6: RM200 + CTA -->
+    <div class="card">
+      <div class="clbl"><div class="dot dgn"></div><span class="zh s">👤 Step 6 — RM200 + Two-Choice CTA</span><span class="en">👤 Step 6 — RM200 + Two-Choice CTA</span></div>
+      <div class="al al-gn" style="margin-bottom:8px"><div class="ali">💡</div><div><span class="zh s">价格在这里才说，不是一开始。两个时间选项，不给开放式问题。</span><span class="en">Only mention price here, not upfront. Give two time options — never open-ended.</span></div></div>
+      <div class="sb sb-gn"><span class="sl sl-gn">RM200 CTA</span><button class="cpb">Copy</button>
+        <div class="zh s">Case Assessment 是 <strong>RM200 / 1小时</strong>。<br><br>如果你之后决定委托我们处理，这 RM200 全额抵扣——等于你的 Assessment 是免费的。<br><br>📍 线下 KL 或 💻 Zoom 都可以。<br><br>你<strong>明天下午 2pm</strong> 方便，还是<strong>后天上午 10am</strong> 比较好？</div>
+        <div class="en">The Case Assessment is <strong>RM200 / 1 hour</strong>.<br><br>If you decide to engage us afterwards, the RM200 is fully deducted — so your Assessment is essentially free.<br><br>📍 In-person KL or 💻 Zoom, both available.<br><br>Are you free <strong>tomorrow at 2pm</strong>, or would <strong>the day after at 10am</strong> work better?</div>
+      </div>
+    </div>
+
+    <!-- STEP 7: PAYMENT -->
+    <div class="card">
+      <div class="clbl"><div class="dot db"></div><span class="zh s">💳 Step 7 — Payment（Lead 确认时间后）</span><span class="en">💳 Step 7 — Payment (after lead confirms time)</span></div>
+      <div class="al al-b" style="margin-bottom:8px"><div class="ali">📋</div><div><span class="zh s">Lead 确认了时间之后，发付款资料。简短，清楚，给 deadline。</span><span class="en">After lead confirms time, send payment details. Short, clear, with a deadline.</span></div></div>
+      <div class="sb sb-b"><span class="sl sl-b">Payment Instructions</span><button class="cpb">Copy</button>
+        <div class="zh s">好的！我帮你预留 [日期 + 时间] 的档期 ☺️<br><br>麻烦你在 [时间，例如：今天内] 完成付款，档期才算确认。<br><br>💳 <strong>付款资料：</strong><br>银行：[银行名]<br>户名：[户名]<br>账号：[账号]<br>金额：RM200<br><br>付款后请把 receipt 发给我，我帮你确认 ✅</div>
+        <div class="en">Great! I've reserved the slot for you on [date + time] ☺️<br><br>Please complete payment by [time, e.g. today] to confirm your slot.<br><br>💳 <strong>Payment details:</strong><br>Bank: [Bank name]<br>Account name: [Name]<br>Account number: [Number]<br>Amount: RM200<br><br>Please send the receipt to me after payment and I'll confirm your slot ✅</div>
+      </div>
+    </div>
+
+    <!-- OBJECTION: NO MONEY -->
+    <div class="div"></div>
+    <div class="clbl"><div class="dot dr"></div><span class="zh s">🛡️ Objection — "没钱" / "考虑一下"</span><span class="en">🛡️ Objection — "No money" / "Let me think"</span></div>
+
+    <div class="oc">
+      <div class="oq"><span class="zh s">"没钱" / "等发薪水" / "寄钱回家"</span><span class="en">"No money" / "Waiting for salary" / "Need to send money home"</span></div>
+      <div class="ow">⚡ <span class="zh s">"没钱"99%不是真正原因。先找出真实 objection，再处理。</span><span class="en">"No money" is 99% not the real reason. Find the real objection first.</span></div>
+      <div style="padding:0 12px 12px">
+        <div class="sb sb-r"><span class="sl sl-r">先找真实 objection</span><button class="cpb">Copy</button>
+          <div class="zh s">我理解 ☺️ 想先问你——是这个月真的资金比较紧，还是你其实还不确定这个 Assessment 对你有没有帮助？</div>
+          <div class="en">I understand ☺️ Can I ask — is it genuinely tight this month financially, or are you actually unsure whether this Assessment will help you?</div>
+        </div>
+        <div class="sb sb-r" style="margin-top:8px"><span class="sl sl-r">如果真的是钱的问题</span><button class="cpb">Copy</button>
+          <div class="zh s">明白。那我们这样——我先帮你保留档期，你方便的时候再确认付款，可以吗？<br><br>因为律师的档期有限，我不想你到时候约不到 ☺️<br><br>你大概什么时候会方便？</div>
+          <div class="en">Understood. How about this — let me hold the slot for you first, and you confirm payment when you're ready, okay?<br><br>The lawyer's slots are limited and I don't want you to miss out ☺️<br><br>When do you think you'll be available?</div>
+        </div>
+        <div class="sb sb-r" style="margin-top:8px"><span class="sl sl-r">如果是不确定值不值得</span><button class="cpb">Copy</button>
+          <div class="zh s">我明白这个顾虑 ☺️<br><br>其实你想一下——你现在的情况，你自己能解决吗？还是说你需要有人告诉你到底有哪些选择？<br><br>RM200，律师 1 小时直接告诉你你的情况、你的选择、你的第一步。如果之后委托我们，这 RM200 全额抵扣。<br><br>就算你做完 Assessment 之后决定不继续，你至少清楚自己的情况了——这个信息本身就值这个价。</div>
+          <div class="en">I understand that concern ☺️<br><br>Think about it this way — can you resolve your current situation on your own? Or do you need someone to tell you what options you actually have?<br><br>RM200, the lawyer gives you 1 hour to directly explain your situation, your options, and your first step. If you engage us after, RM200 is fully deducted.<br><br>Even if you decide not to proceed after the Assessment, at least you'll know exactly where you stand — and that information alone is worth the price.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oc">
+      <div class="oq"><span class="zh s">"我要考虑一下"</span><span class="en">"Let me think about it"</span></div>
+      <div class="ow">⚡ <span class="zh s">不要说"好，你考虑"。找出他在考虑什么。</span><span class="en">Don't say "okay, take your time." Find out what they're considering.</span></div>
+      <div style="padding:0 12px 12px">
+        <div class="sb sb-r"><span class="sl sl-r">Think About It</span><button class="cpb">Copy</button>
+          <div class="zh s">完全理解 ☺️ 不过我想先问你——你现在主要在考虑的是什么？<br><br>是价格？还是时间不方便？还是你还不确定自己要不要走这一步？<br><br>告诉我，我帮你解答 ☺️</div>
+          <div class="en">Completely understand ☺️ But let me ask — what's the main thing you're considering right now?<br><br>Is it the price? Timing? Or are you still unsure whether you want to take this step?<br><br>Tell me and I'll help address it ☺️</div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+
+
+  <!-- AI ASSISTANT TAB -->
+  <div class="tab-pane" id="div-ai">
+    <div class="al al-b" style="margin-bottom:14px"><div class="ali">🤖</div><div><span class="zh s">把 lead 发来的消息 paste 进来，AI 会根据 KTLC 的回复策略给你最合适的回复。直接 copy 发出去。</span><span class="en">Paste the lead's message here. AI will generate the best reply based on KTLC's strategy. Copy and send directly.</span></div></div>
+
+    <div style="margin-bottom:10px">
+      <div style="font-size:12px;font-weight:600;color:var(--tx2);margin-bottom:5px"><span class="zh s">目前 Stage（帮 AI 了解对话进度）</span><span class="en">Current Stage (helps AI understand where you are)</span></div>
+      <select id="aiStage" style="width:100%;padding:8px 10px;border:1px solid var(--bd);border-radius:var(--rs);font-size:13px;font-family:inherit;background:var(--cr);color:var(--tx)">
+        <option value="opening">开场 / 刚选了 ABCD</option>
+        <option value="diagnosis">Mini Diagnosis 阶段</option>
+        <option value="gap">Create Gap / Present Assessment 阶段</option>
+        <option value="cta">已经给了 RM200 CTA</option>
+        <option value="objection">处理 Objection（没钱/考虑）</option>
+        <option value="payment">等待付款</option>
+      </select>
+    </div>
+
+    <div style="margin-bottom:10px">
+      <div style="font-size:12px;font-weight:600;color:var(--tx2);margin-bottom:5px"><span class="zh s">Lead 发来的消息</span><span class="en">Lead's message</span></div>
+      <textarea id="aiInput" placeholder="把 lead 说的话 paste 进来..." style="width:100%;min-height:100px;padding:10px;border:1px solid var(--bd);border-radius:var(--rs);font-size:13px;font-family:inherit;resize:vertical;background:var(--cr);color:var(--tx);box-sizing:border-box"></textarea>
+    </div>
+
+    <button id="aiGenBtn" style="width:100%;padding:11px;background:var(--ro);color:#fff;border:none;border-radius:var(--rs);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;-webkit-tap-highlight-color:transparent">⚡ 生成回复</button>
+
+    <div id="aiOutput" style="display:none;margin-top:14px">
+      <div style="font-size:12px;font-weight:600;color:var(--tx2);margin-bottom:6px">建议回复：</div>
+      <div id="aiResult" style="background:var(--cr2);border:1px solid var(--bd);border-radius:var(--rs);padding:12px;font-size:13px;line-height:1.6;color:var(--tx);white-space:pre-wrap;min-height:80px"></div>
+      <button id="aiCopyBtn" style="margin-top:8px;width:100%;padding:9px;background:var(--gn);color:#fff;border:none;border-radius:var(--rs);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">Copy 回复</button>
+    </div>
+
+    <div id="aiLoading" style="display:none;text-align:center;padding:20px;color:var(--tx2);font-size:13px">
+      <div style="margin-bottom:6px">⏳ 正在生成回复...</div>
+    </div>
+
+    <div id="aiError" style="display:none;margin-top:10px" class="al al-r">
+      <div class="ali">⚠️</div>
+      <div id="aiErrorMsg" style="font-size:12px"></div>
+    </div>
   </div>
 
-  <!-- SCRIPTS TAB -->
+    <!-- SCRIPTS TAB -->
   <div class="tab-pane" id="div-scripts">
     <div class="clbl"><div class="dot dr"></div><span class="zh s">💬 常用话术</span><span class="en">💬 Common Scripts</span></div>
 
@@ -900,6 +993,98 @@ function doCopy(btn) {
     setTimeout(function() { btn.textContent = orig; }, 2000);
   }).catch(function() {});
 }
+
+
+// ── AI ASSISTANT ──
+var KTLC_SYSTEM = `You are an appointment setter assistant for KTLC (Koh & Teh Law Chamber), a law firm specialising in divorce and estate matters in Malaysia.
+
+YOUR ONLY JOB: Help the setter craft the perfect WhatsApp reply to move the lead toward booking a RM200 Case Assessment with the lawyer.
+
+CORE PRINCIPLES:
+1. Never give legal advice. Always redirect to "your situation needs the lawyer to assess in person."
+2. The setter's job is to tell leads "your situation needs a lawyer" — NOT to ask if they want one.
+3. Consultation = Case Assessment. Frame it as getting clarity, not committing to divorce.
+4. RM200 is fully deductible upon engagement — always mention this.
+5. Every reply must end with a question or a clear next step.
+6. If lead says "no money" — find the real objection first. 99% of the time it's not really about money.
+
+FLOW:
+Opening (ABCD) → Mini Diagnosis (4 questions one at a time) → Setter Summary → Create Gap → Present Case Assessment → RM200 + Two-Choice CTA → Payment
+
+FEES: RM200 / 1 hour (in-person KL or Zoom). Fully deductible upon engagement.
+
+LANGUAGE: Reply in the SAME language the lead used. If they wrote in Chinese/Malay mix, reply in the same mix. Keep it warm, natural, like a real person — not robotic.
+
+REPLY FORMAT: Just give the WhatsApp message to send. No explanation, no preamble. Pure reply text only.`;
+
+function getStageContext(stage) {
+  var stages = {
+    'opening': 'Lead just replied to the ABCD opening question. Next step: ask one diagnosis question to understand their situation.',
+    'diagnosis': 'In the middle of Mini Diagnosis. Ask the next relevant question or summarise if you have enough info.',
+    'gap': 'About to create gap or present the Case Assessment. Make them feel the cost of not acting, then present RM200 assessment.',
+    'cta': 'Already presented RM200 CTA. Lead has not responded yet or is hesitating.',
+    'objection': 'Lead said no money, need to think, or another objection. Find real objection and handle it.',
+    'payment': 'Lead agreed. Now need to send payment details or follow up on payment.'
+  };
+  return stages[stage] || '';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var genBtn = document.getElementById('aiGenBtn');
+  var copyBtn = document.getElementById('aiCopyBtn');
+  if (!genBtn) return;
+
+  genBtn.addEventListener('click', async function() {
+    var input = document.getElementById('aiInput').value.trim();
+    var stage = document.getElementById('aiStage').value;
+    if (!input) { alert('请先 paste lead 的消息'); return; }
+
+    document.getElementById('aiOutput').style.display = 'none';
+    document.getElementById('aiError').style.display = 'none';
+    document.getElementById('aiLoading').style.display = 'block';
+    genBtn.disabled = true;
+    genBtn.textContent = '⏳ 生成中...';
+
+    var prompt = 'Stage: ' + getStageContext(stage) + '\n\nLead said:\n"' + input + '"\n\nGenerate the best WhatsApp reply for the setter to send.';
+
+    try {
+      var res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1000,
+          system: KTLC_SYSTEM,
+          messages: [{ role: 'user', content: prompt }]
+        })
+      });
+      var data = await res.json();
+      var reply = data.content && data.content[0] ? data.content[0].text : '';
+      if (!reply) throw new Error('No reply generated');
+
+      document.getElementById('aiResult').textContent = reply;
+      document.getElementById('aiOutput').style.display = 'block';
+    } catch(e) {
+      document.getElementById('aiErrorMsg').textContent = '生成失败，请重试：' + e.message;
+      document.getElementById('aiError').style.display = 'block';
+    } finally {
+      document.getElementById('aiLoading').style.display = 'none';
+      genBtn.disabled = false;
+      genBtn.textContent = '⚡ 生成回复';
+    }
+  });
+
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+      var text = document.getElementById('aiResult').textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        copyBtn.textContent = '✓ 已复制！';
+        setTimeout(function() { copyBtn.textContent = 'Copy 回复'; }, 2000);
+      });
+    });
+  }
+});
+
 
 document.addEventListener('DOMContentLoaded', function() {
   setLang('zh');

@@ -604,58 +604,110 @@ span.en { display: none; } span.en.s { display: inline; }
 
 
 
+
+<div id="pg-probate" class="page">
+<div class="gap"></div>
+<div class="sec-t" style="color:var(--go)">📜 <span class="zh s">遗产案件</span><span class="en">Estate Case</span></div>
+<div class="sec-s"><span class="zh s">有 Will (Probate) · 无 Will (LA) · 流程 · 话术 · FAQ · 跟进</span><span class="en">With Will (Probate) · No Will (LA) · Flow · Scripts · FAQ · Follow Up</span></div>
+
+<div id="probate-tabs">
+  <div class="tabs">
+    <button class="tab-btn on" data-tab="pro-flow"><span class="zh s">📋 流程</span><span class="en">📋 Flow</span></button>
+    <button class="tab-btn" data-tab="pro-scripts"><span class="zh s">💬 话术</span><span class="en">💬 Scripts</span></button>
+    <button class="tab-btn" data-tab="pro-faq"><span class="zh s">❓ FAQ</span><span class="en">❓ FAQ</span></button>
+    <button class="tab-btn" data-tab="pro-fu"><span class="zh s">🔄 跟进</span><span class="en">🔄 Follow Up</span></button>
+    <button class="tab-btn" data-tab="pro-rules"><span class="zh s">⚠️ 规则</span><span class="en">⚠️ Rules</span></button>
+  </div>
+
+  <!-- FLOW TAB -->
+  <div class="tab-pane on" id="pro-flow">
+    <div class="al al-b" style="margin-bottom:12px"><div class="ali">💡</div><div><span class="zh s"><strong>重要区别：</strong>有 Will → Grant of Probate | 无 Will → Letters of Administration (LA)。两个都接，流程不同。</span><span class="en"><strong>Key difference:</strong> With Will → Grant of Probate | No Will → Letters of Administration (LA). Both handled, different process.</span></div></div>
+
+    <div class="card" style="border-left:3px solid var(--go);margin-bottom:14px">
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">💎 遗产服务 Value Stack — 委托后获得</span><span class="en">💎 Estate Service Value Stack — Upon engagement</span></div>
+      <ul class="cl">
+        <li><span class="zh s">📄 全程文件准备与法庭申请</span><span class="en">📄 Full document preparation and court application</span></li>
+        <li><span class="zh s">👤 专属 Case Manager 全程跟进（主动通知每一个进度）</span><span class="en">👤 Dedicated Case Manager throughout (proactive updates at every stage)</span></li>
+        <li><span class="zh s">🏦 协助处理银行户口、产业、车辆等资产转名</span><span class="en">🏦 Assist with bank accounts, property, vehicle and asset transfer</span></li>
+        <li><span class="zh s">🏛️ 政府部门手续协助（无需自己跑腿）</span><span class="en">🏛️ Government procedure assistance (no need to run errands yourself)</span></li>
+        <li><span class="zh s">💳 Deposit + 尾款，灵活付款方式</span><span class="en">💳 Deposit + balance, flexible payment</span></li>
+        <li><span class="zh s">🔒 固定 Nett 价，无隐藏收费保证</span><span class="en">🔒 Fixed nett price, no hidden fees guaranteed</span></li>
+        <li><span class="zh s">📅 承诺完成时间表</span><span class="en">📅 Committed completion timeline</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot" style="background:var(--bl)"></div><span class="zh s">🤖 Step 1 — Bot 开场（自动发）</span><span class="en">🤖 Step 1 — Bot Opening (auto-send)</span></div>
+      <div class="sb"><span class="sl">Probate Bot Opening</span><button class="cpb">Copy</button>
+        <div class="zh s">您好！我是 KTLC 的 Ashley 👋<br><br>我们专门处理遗产承办事务。<br><br>请问你的情况是：<br><br>A）家人已经去世，他/她有留下 Will（遗嘱）<br>B）家人已经去世，没有 Will<br>C）我想了解 Probate / 遗产处理的流程</div>
+        <div class="en">Hi! I'm Ashley from KTLC 👋<br><br>We specialise in estate administration matters.<br><br>May I ask which situation applies?<br><br>A) My family member has passed, and they left a Will<br>B) My family member has passed, and there is no Will<br>C) I'd like to understand the Probate / estate process</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 2A — 有 Will（Grant of Probate）</span><span class="en">👤 Step 2A — Has Will (Grant of Probate)</span></div>
+      <div class="sb"><span class="sl">Has Will Reply</span><button class="cpb">Copy</button>
+        <div class="zh s">了解了 ☺️<br><br>有 Will 的情况，我们需要向法庭申请 <strong>Grant of Probate</strong>——让 Will 里面指定的 Executor 有法律权力来执行遗嘱。<br><br>整个流程的时间和费用要看资产的种类和数量。<br><br>我帮你安排一个跟律师的 <strong>Case Assessment（RM200）</strong>——律师了解你的情况后，给你完整的时间线和费用估算 ☺️<br><br>我帮你安排，可以吗？</div>
+        <div class="en">Got it ☺️<br><br>With a Will, we apply to court for a <strong>Grant of Probate</strong> — giving the named Executor the legal authority to carry out the estate.<br><br>Timeline and fees depend on the type and amount of assets.<br><br>Let me arrange a <strong>Case Assessment (RM200)</strong> with the lawyer — the lawyer will give you a full timeline and fee estimate after understanding your situation ☺️<br><br>Can I arrange this for you?</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 2B — 没有 Will（Letters of Administration）</span><span class="en">👤 Step 2B — No Will (Letters of Administration)</span></div>
+      <div class="sb"><span class="sl">No Will Reply</span><button class="cpb">Copy</button>
+        <div class="zh s">了解了 ☺️<br><br>没有 Will 的情况，我们处理的是 <strong>Letters of Administration (LA)</strong>——跟 Probate 的流程不一样，但我们同样可以帮你处理。<br><br>LA 需要法庭批准一位家属成为 Administrator，然后按照马来西亚法定继承顺序来分配遗产。<br><br>我帮你安排一个 <strong>Case Assessment（RM200）</strong>——律师一步步带你了解整个流程 ☺️<br><br>我帮你安排，可以吗？</div>
+        <div class="en">Got it ☺️<br><br>Without a Will, what we handle is <strong>Letters of Administration (LA)</strong> — a different process from Probate, but we handle both.<br><br>LA requires court approval for a family member to become the Administrator, then the estate is distributed according to Malaysia's statutory inheritance order.<br><br>Let me arrange a <strong>Case Assessment (RM200)</strong> — the lawyer will walk you through every step ☺️<br><br>Can I arrange this for you?</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dgn"></div><span class="zh s">👤 Step 3 — Lead 说 OK 后：RM200 + 时间选项</span><span class="en">👤 Step 3 — After lead says OK: RM200 + time options</span></div>
+      <div class="al al-gn" style="margin-bottom:8px"><div class="ali">💡</div><div><span class="zh s">等 lead 说 OK / 可以 / 好 之后才发这条。</span><span class="en">Only send after lead says OK / yes / can.</span></div></div>
+      <div class="sb sb-gn"><span class="sl sl-gn">RM200 CTA</span><button class="cpb">Copy</button>
+        <div class="zh s">好的 ☺️ Case Assessment 是 <strong>RM200</strong>。<br><br>如果之后委托我们处理，这 RM200 全额抵扣——等于你的 Assessment 是免费的。<br><br>📍 线下 KL 或 💻 Zoom 都可以。<br><br>你<strong>明天下午 2pm</strong> 方便，还是<strong>后天上午 10am</strong> 比较好？</div>
+        <div class="en">Great ☺️ The Case Assessment is <strong>RM200</strong>.<br><br>If you engage us afterwards, the RM200 is fully deducted — so your Assessment is essentially free.<br><br>📍 In-person KL or 💻 Zoom, both available.<br><br>Are you free <strong>tomorrow at 2pm</strong>, or would <strong>the day after at 10am</strong> work better?</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot db"></div><span class="zh s">💳 Step 4 — Payment（确认时间后）</span><span class="en">💳 Step 4 — Payment (after time confirmed)</span></div>
+      <div class="sb sb-b"><span class="sl sl-b">Payment</span><button class="cpb">Copy</button>
+        <div class="zh s">好的！我帮你预留 [日期 + 时间] ☺️<br><br>麻烦你在 [时间] 之前完成付款，档期才算确认。<br><br>💳 <strong>付款资料：</strong><br>银行：[银行名]<br>户名：[户名]<br>账号：[账号]<br>金额：RM200<br><br>付款后请把 receipt 发给我，我帮你确认 ✅</div>
+        <div class="en">Great! I've reserved [date + time] for you ☺️<br><br>Please complete payment by [time] to confirm your slot.<br><br>💳 <strong>Payment details:</strong><br>Bank: [Bank name]<br>Account name: [Name]<br>Account number: [Number]<br>Amount: RM200<br><br>Please send the receipt after payment and I'll confirm ✅</div>
+      </div>
+    </div>
+  </div>
+
   <!-- SCRIPTS TAB -->
   <div class="tab-pane" id="pro-scripts">
     <div class="card">
       <div class="clbl"><div class="dot dg"></div><span class="zh s">如果继续问法律/流程问题</span><span class="en">If they keep asking legal/process questions</span></div>
-      <div class="card">
-  <div class="sb sb-r"><span class="sl sl-r">❓ 如果继续问法律问题</span><button class="cpb">Copy</button>
-    <div class="zh s">这个问题很好，不过坦白说，我在 WA 上没办法给你准确答案——每个案件情况都不一样 ☺️<br><br>在这里解释，我怕反而误导你。<br>最好来见律师，把你的情况说清楚，律师才能给你真正正确的建议。<br><br>RM200 咨询，1小时，委托后可抵扣。你明天方便过来吗？ ☺️</div>
-    <div class="en">That's a great question — but honestly, I can't give you an accurate answer on WA, as every case is different ☺️<br><br>Explaining here might actually mislead you.<br>The best approach is to come see the lawyer, explain your situation, and get truly accurate advice.<br><br>RM200 consultation, 1 hour, deductible upon engagement. Are you free tomorrow? ☺️</div>
-  </div>
-</div>
+      <div class="sb sb-r"><span class="sl sl-r">Redirect</span><button class="cpb">Copy</button>
+        <div class="zh s">这个问题在 WA 上我没办法给你准确答案——每个案件的情况都不一样 ☺️<br><br>你的情况需要律师来了解，才能给你最准确的建议。<br><br>我帮你安排 Case Assessment，你把整个情况跟律师说明——律师直接告诉你有哪些选择和下一步。<br><br>要不要我现在帮你安排？</div>
+        <div class="en">I can't give you an accurate answer on WhatsApp — every case is different ☺️<br><br>Your situation needs a lawyer to properly assess before giving accurate advice.<br><br>Let me arrange a Case Assessment — you explain the full situation to the lawyer, and the lawyer tells you your options and next step.<br><br>Want me to arrange it now?</div>
+      </div>
     </div>
-
     <div class="card">
       <div class="clbl"><div class="dot dg"></div><span class="zh s">"费用大概多少？"</span><span class="en">"How much does it cost?"</span></div>
       <div class="sb sb-r"><span class="sl sl-r">Probate Fee</span><button class="cpb">Copy</button>
-        <div class="zh s">Probate / LA 的费用主要看遗产的总值和资产种类 ☺️<br><br>Zoom RM200 / 线下 律师见了你之后给你准确的估算。<br>委托我们的话，这个咨询费可以全额抵扣 ☺️</div>
-        <div class="en">Probate / LA fees mainly depend on the total estate value and asset types ☺️<br><br>RM200 consultation — the lawyer will give you an accurate estimate after meeting you.<br>Fully deductible if you engage us ☺️</div>
+        <div class="zh s">Probate / LA 的费用主要看遗产的总值和资产种类 ☺️<br><br>Case Assessment 的时候律师了解了你的情况后给你准确估算。委托我们的话，RM200 全额抵扣 ☺️</div>
+        <div class="en">Probate / LA fees mainly depend on the total estate value and asset types ☺️<br><br>The lawyer will give you an accurate estimate during the Case Assessment. Fully deductible if you engage us ☺️</div>
       </div>
     </div>
-
     <div class="card">
       <div class="clbl"><div class="dot dg"></div><span class="zh s">"我们有几兄弟姐妹，谁来处理？"</span><span class="en">"We have multiple siblings, who handles it?"</span></div>
       <div class="sb sb-r"><span class="sl sl-r">Multiple Beneficiaries</span><button class="cpb">Copy</button>
-        <div class="zh s">这是很多家庭会遇到的问题 ☺️<br><br>理论上任何受益人都可以申请成为 Administrator——<br>但通常建议由一到两位家属代表来做，避免日后纷争。<br><br>具体怎么安排，律师见了你们才能给最合适的建议 ☺️<br><br>要不要先来咨询？1小时。</div>
-        <div class="en">This is something many families face ☺️<br><br>In theory, any beneficiary can apply to become Administrator —<br>but it's usually recommended that one or two family members handle it to avoid future disputes.<br><br>The lawyer can advise on the best arrangement after meeting your family ☺️<br><br>Would you like to come for a consultation (RM200 线下 / RM200 Zoom).</div>
+        <div class="zh s">这是很多家庭会遇到的问题 ☺️<br><br>理论上任何受益人都可以申请成为 Administrator——但通常建议由一到两位家属代表来做，避免日后纷争。<br><br>具体怎么安排，律师在 Case Assessment 的时候会给最合适的建议 ☺️<br><br>要不要我帮你安排？</div>
+        <div class="en">This is something many families face ☺️<br><br>In theory any beneficiary can apply to become Administrator — but it's usually recommended that one or two family members handle it to avoid future disputes.<br><br>The lawyer will advise on the best arrangement during the Case Assessment ☺️<br><br>Want me to arrange one?</div>
       </div>
     </div>
-
-    <div class="card" style="margin-top:10px">
-  <div class="sb sb-gn"><span class="sl sl-gn">📅 Booking CTA</span><button class="cpb">Copy</button>
-    <div class="zh s">📍 KTLC — Koh &amp; Teh Law Chamber<br><br>
-<strong>RM200 咨询</strong>（线下 KL · Zoom 皆可）<br>
-✅ 委托后咨询费全额抵扣<br><br>
-<strong>这 1 小时，你会得到：</strong><br>
-✔️ 了解你的情况适合走哪条法律途径<br>
-✔️ 清楚整个流程和大概时间线<br>
-✔️ 知道费用范围和付款方式<br>
-✔️ 律师告诉你现在应该做的第一步<br><br>
-Consultation 不代表你一定要马上行动——主要是让你先清楚自己的选择。<br><br>
-你<strong>明天下午 2pm</strong> 方便吗？还是<strong>后天上午</strong>比较好？ ☺️</div>
-    <div class="en">📍 KTLC — Koh &amp; Teh Law Chamber<br><br>💻 <strong>📍 KTLC — Koh &amp; Teh Law Chamber<br><br>
-<strong>RM200 consultation</strong> (In-person KL · Zoom available)<br>
-✅ Fully deductible upon engagement<br><br>
-<strong>In this 1 hour, you will get:</strong><br>
-✔️ Understand which legal route fits your situation<br>
-✔️ Full clarity on the process and timeline<br>
-✔️ Know the fee range and payment options<br>
-✔️ The lawyer tells you the exact first step to take<br><br>
-Consultation doesn't mean you have to act immediately — it's mainly so you understand your options clearly.<br><br>
-Are you free <strong>tomorrow at 2pm</strong>? Or would <strong>the morning after</strong> work better? ☺️</div>
-  </div>
-</div>
+    <div class="card">
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">"资产很多很复杂怎么办？"</span><span class="en">"What if the estate is large or complicated?"</span></div>
+      <div class="sb sb-r"><span class="sl sl-r">Complex Estate</span><button class="cpb">Copy</button>
+        <div class="zh s">没关系，我们处理过各种复杂程度的案件 ☺️<br><br>资产越多越复杂，越需要律师正确处理——避免日后家庭纠纷或法律问题。<br><br>Case Assessment 的时候律师了解了你的情况会告诉你最好的处理方式 ☺️<br><br>要不要我帮你安排？</div>
+        <div class="en">No problem — we've handled cases of all complexity levels ☺️<br><br>The larger and more complex the estate, the more important it is to have a lawyer handle it properly — to avoid future disputes or legal issues.<br><br>The lawyer will advise on the best approach during the Case Assessment ☺️<br><br>Want me to arrange one?</div>
+      </div>
+    </div>
   </div>
 
   <!-- FAQ TAB -->
@@ -664,38 +716,35 @@ Are you free <strong>tomorrow at 2pm</strong>? Or would <strong>the morning afte
       <div class="oq"><span class="zh s">没有 Will 可以处理吗？</span><span class="en">Can you handle cases without a Will?</span></div>
       <div style="padding:0 12px 12px">
         <div class="sb sb-g"><span class="sl">No Will</span><button class="cpb">Copy</button>
-          <div class="zh s">可以的 ☺️<br><br>没有 Will 的情况叫做 <strong>Letters of Administration (LA)</strong>，我们同样可以帮你处理。<br><br>LA 的流程跟有 Will 的 Probate 不一样——需要法庭批准一位家属成为 Administrator，然后按照法定继承顺序分配遗产。<br><br>来见律师，1小时，律师会解释完整流程 ☺️</div>
-          <div class="en">Yes, absolutely ☺️<br><br>Without a Will, the process is called <strong>Letters of Administration (LA)</strong> — we handle this too.<br><br>LA differs from Probate — it requires court approval for a family member to become Administrator, then distributes assets per statutory order.<br><br>Come see the lawyer, 1 hour, full process explained ☺️</div>
+          <div class="zh s">可以的 ☺️<br><br>没有 Will 的情况叫做 <strong>Letters of Administration (LA)</strong>，我们同样可以帮你处理。<br><br>LA 的流程跟有 Will 的 Probate 不一样——需要法庭批准一位家属成为 Administrator，然后按照法定继承顺序分配遗产。<br><br>要不要我帮你安排 Case Assessment？</div>
+          <div class="en">Yes, absolutely ☺️<br><br>Without a Will, the process is called <strong>Letters of Administration (LA)</strong> — we handle this too.<br><br>LA differs from Probate — it requires court approval for a family member to become Administrator, then distributes assets per statutory order.<br><br>Want me to arrange a Case Assessment?</div>
         </div>
       </div>
     </div>
-
     <div class="oc">
       <div class="oq"><span class="zh s">需要多久？</span><span class="en">How long does it take?</span></div>
       <div style="padding:0 12px 12px">
         <div class="sb sb-g"><span class="sl">Timeline</span><button class="cpb">Copy</button>
-          <div class="zh s">一般来说 ☺️<br><br>• 有 Will 的 Probate：大约 <strong>6–12 个月</strong><br>• 没有 Will 的 LA：通常稍微长一点<br><br>但这也要看资产的复杂程度和法庭排期。<br>律师咨询的时候会给你更准确的时间线 ☺️</div>
-          <div class="en">Generally ☺️<br><br>• Probate with Will: approximately <strong>6–12 months</strong><br>• LA without Will: usually a bit longer<br><br>Also depends on asset complexity and court scheduling.<br>The lawyer will give a more accurate timeline during consultation ☺️</div>
+          <div class="zh s">一般来说 ☺️<br><br>• 有 Will 的 Probate：大约 <strong>6–12 个月</strong><br>• 没有 Will 的 LA：通常稍微长一点<br><br>但这也要看资产的复杂程度和法庭排期。律师在 Case Assessment 的时候会给你更准确的时间线 ☺️</div>
+          <div class="en">Generally ☺️<br><br>• Probate with Will: approximately <strong>6–12 months</strong><br>• LA without Will: usually a bit longer<br><br>Also depends on asset complexity and court scheduling. The lawyer will give a more accurate timeline during the Case Assessment ☺️</div>
         </div>
       </div>
     </div>
-
     <div class="oc">
-      <div class="oq"><span class="zh s">咨询费可以免费吗？</span><span class="en">Can the consultation be free?</span></div>
+      <div class="oq"><span class="zh s">Case Assessment 可以免费吗？</span><span class="en">Can the Assessment be free?</span></div>
       <div style="padding:0 12px 12px">
-        <div class="sb sb-g"><span class="sl">Free Consult</span><button class="cpb">Copy</button>
-          <div class="zh s">我们的咨询是 RM200（线下）/ RM200（Zoom） ☺️<br><br>如果之后委托我们，咨询费会<strong>全额抵扣</strong>服务费——等于你一分钱都没多花。<br><br>1 小时里律师会告诉你整个流程、需要的文件、大概费用，对你做决定非常有帮助 ☺️</div>
-          <div class="en">Our consultation is RM200 (in-person) / RM200 (Zoom) ☺️<br><br>If you engage us afterwards, the consultation fee is <strong>fully deducted</strong> from the service fee — so you pay nothing extra.<br><br>In that 1 hour the lawyer explains the full process, required documents, and approximate fees — very helpful for your decision ☺️</div>
+        <div class="sb sb-g"><span class="sl">Free?</span><button class="cpb">Copy</button>
+          <div class="zh s">Case Assessment 是 RM200 ☺️<br><br>如果之后委托我们，RM200 会<strong>全额抵扣</strong>服务费——等于你一分钱都没多花。<br><br>律师在 Assessment 里直接告诉你流程、时间线、费用估算，对你做决定非常重要 ☺️</div>
+          <div class="en">The Case Assessment is RM200 ☺️<br><br>If you engage us afterwards, RM200 is <strong>fully deducted</strong> from the service fee — so you pay nothing extra.<br><br>In the Assessment the lawyer tells you the process, timeline, and fee estimate directly — critical for your decision ☺️</div>
         </div>
       </div>
     </div>
-
     <div class="oc">
-      <div class="oq"><span class="zh s">家人的资产很多/很复杂怎么办？</span><span class="en">What if the estate is large or complicated?</span></div>
+      <div class="oq"><span class="zh s">家人的资产还没转名，怎么处理？</span><span class="en">The assets haven't been transferred yet, what do we do?</span></div>
       <div style="padding:0 12px 12px">
-        <div class="sb sb-g"><span class="sl">Complex Estate</span><button class="cpb">Copy</button>
-          <div class="zh s">没关系，我们处理过各种复杂程度的案件 ☺️<br><br>资产越多越复杂，越需要律师帮你正确处理——避免日后家庭纠纷或法律问题。<br><br>Zoom RM200 / 线下 律师了解了你的情况后会告诉你最好的处理方式 ☺️</div>
-          <div class="en">No problem — we've handled cases of all complexity levels ☺️<br><br>The larger and more complex the estate, the more important it is to have a lawyer handle it properly — to avoid future family disputes or legal issues.<br><br>RM200 consultation — the lawyer will advise on the best approach after understanding your situation ☺️</div>
+        <div class="sb sb-g"><span class="sl">Asset Transfer</span><button class="cpb">Copy</button>
+          <div class="zh s">资产转名是 Probate / LA 流程里面很重要的一部分 ☺️<br><br>我们会协助处理银行户口、房产、车辆等资产的转名手续——不需要你自己去跑政府部门。<br><br>具体怎么做，律师在 Case Assessment 的时候会跟你解释 ☺️</div>
+          <div class="en">Asset transfer is an important part of the Probate / LA process ☺️<br><br>We assist with transferring bank accounts, property, vehicles and other assets — no need for you to run between government departments.<br><br>The lawyer will explain the details during the Case Assessment ☺️</div>
         </div>
       </div>
     </div>
@@ -709,36 +758,35 @@ Are you free <strong>tomorrow at 2pm</strong>? Or would <strong>the morning afte
         <div class="tld"></div>
         <div class="tlt">FU1 · +3小时 <span class="bdg bdg-gr">人工</span></div>
         <div class="sb" style="margin-top:7px"><span class="sl">FU1</span><button class="cpb">Copy</button>
-          <div class="zh s">[Name] 你好 ☺️ 如果还有任何问题，随时可以问我。<br><br>律师这周还有咨询空档，要不要我帮你预留一个时间？</div>
-          <div class="en">[Name] hi ☺️ Feel free to ask if you have more questions.<br><br>The lawyer still has slots this week — want me to reserve a time?</div>
+          <div class="zh s">[Name] 你好 ☺️ 如果还有任何问题，随时可以问我。<br><br>律师这周还有 Case Assessment 的空档，要不要我帮你先预留一个时间？</div>
+          <div class="en">[Name] hi there ☺️ Feel free to ask if you have more questions.<br><br>The lawyer still has Case Assessment slots this week — want me to reserve a time?</div>
         </div>
       </div>
       <div class="tli">
         <div class="tld"></div>
         <div class="tlt">FU2 · +1天 <span class="bdg bdg-gr">人工 10-11am</span></div>
         <div class="sb" style="margin-top:7px"><span class="sl">FU2</span><button class="cpb">Copy</button>
-          <div class="zh s">[Name] 分享一件很多家庭不知道的事 👇<br><br>遗产处理拖得越久，问题越多——<br>有些资产会被冻结，家庭成员之间可能产生纠纷，某些权利也可能受影响。<br><br>越早找律师处理，对所有家庭成员越好。<br><br>来来咨询，1小时，律师帮你理清楚该怎么做。<br>要不要我帮你安排这周？ ☺️</div>
-          <div class="en">[Name] sharing something many families don't realise 👇<br><br>The longer estate matters are left unresolved, the more complications arise —<br>assets can be frozen, family disputes can develop, and certain rights may be affected.<br><br>The earlier a lawyer is involved, the better for everyone.<br><br>RM200 consultation, 1 hour — the lawyer will help you understand what needs to be done.<br>Want me to arrange something this week? ☺️</div>
+          <div class="zh s">[Name] 分享一件很多家庭不知道的事 👇<br><br>遗产处理拖得越久，问题越多——资产可能被冻结，家庭成员之间容易产生纠纷，某些权利也可能受影响。<br><br>越早找律师处理，对所有家庭成员越好。<br><br>Case Assessment RM200，律师帮你理清楚该怎么做。委托我们的话全额抵扣。<br><br>要不要我帮你安排这周？ ☺️</div>
+          <div class="en">[Name] sharing something many families don't realise 👇<br><br>The longer estate matters are left unresolved, the more complications arise — assets can be frozen, family disputes can develop, certain rights may be affected.<br><br>The earlier a lawyer is involved, the better for everyone.<br><br>Case Assessment RM200, the lawyer helps you understand what needs to be done. Fully deductible if you engage us.<br><br>Want me to arrange something this week? ☺️</div>
         </div>
       </div>
       <div class="tli">
         <div class="tld"></div>
         <div class="tlt">FU3 · +3天 <span class="bdg bdg-gr">人工 10-11am</span></div>
         <div class="sb" style="margin-top:7px"><span class="sl">FU3</span><button class="cpb">Copy</button>
-          <div class="zh s">[Name] 想到你，发你看看 ☺️<br><br>我们的 RM200 咨询，如果之后委托我们，<strong>全额抵扣</strong>服务费。<br><br>1 小时，律师帮你搞清楚：<br>✅ 整个流程怎么走<br>✅ 需要准备什么文件<br>✅ 大概需要多少费用和时间<br><br>这周还有空档，要不要我帮你安排？ ☺️</div>
-          <div class="en">[Name] thought of you ☺️<br><br>Our RM200 consultation is <strong>fully deductible</strong> if you engage us afterwards.<br><br>1 hour, the lawyer helps you understand:<br>✅ The full process step by step<br>✅ What documents are needed<br>✅ Approximate fees and timeline<br><br>Still have slots this week — want me to book one? ☺️</div>
+          <div class="zh s">[Name] 想到你，发你看看 ☺️<br><br>Case Assessment RM200，如果之后委托我们，<strong>全额抵扣</strong>——等于零额外支出。<br><br>律师帮你搞清楚：<br>✅ 整个流程怎么走<br>✅ 需要准备什么文件<br>✅ 大概需要多少费用和时间<br><br>这周还有空档，要不要我帮你安排？ ☺️</div>
+          <div class="en">[Name] thought of you ☺️<br><br>Case Assessment RM200, <strong>fully deductible</strong> if you engage us — zero extra cost.<br><br>The lawyer helps you understand:<br>✅ The full process step by step<br>✅ What documents are needed<br>✅ Approximate fees and timeline<br><br>Still have slots this week — want me to book one? ☺️</div>
         </div>
       </div>
       <div class="tli">
         <div class="tld"></div>
         <div class="tlt">FU4 · +7天 <span class="bdg bdg-gr">人工</span></div>
         <div class="sb" style="margin-top:7px"><span class="sl">FU4</span><button class="cpb">Copy</button>
-          <div class="zh s">[Name] 最后联系你一次 ☺️<br><br>随时有需要，我们都在这里。<br>律师咨询随时可以安排，1小时。<br><br>有需要的话回复我 ☺️</div>
-          <div class="en">[Name] last follow up ☺️<br><br>Whenever you're ready, we're here.<br>Lawyer consultation anytime, 1 hour.<br><br>Reply whenever you need ☺️</div>
+          <div class="zh s">[Name] 最后联系你一次 ☺️<br><br>随时有需要，我们都在这里。Case Assessment 随时可以安排，RM200，委托后全额抵扣。<br><br>有需要的话回复我 ☺️</div>
+          <div class="en">[Name] just reaching out one last time ☺️<br><br>Whenever you're ready, we're here. Case Assessment anytime, RM200, fully deductible.<br><br>Reply whenever you need us ☺️</div>
         </div>
       </div>
     </div>
-
     <div class="div"></div>
     <div class="clbl"><div class="dot dr"></div><span class="zh s">FFK · 预约了没来</span><span class="en">No-show</span></div>
     <div class="tl">
@@ -747,15 +795,15 @@ Are you free <strong>tomorrow at 2pm</strong>? Or would <strong>the morning afte
         <div class="tlt" style="color:var(--ro)">当天下午</div>
         <div class="sb sb-r" style="margin-top:7px"><span class="sl sl-r">FFK Same Day</span><button class="cpb">Copy</button>
           <div class="zh s">[Name] 今天好像没见到你 😊 没关系，临时有事是难免的！<br>要不要我帮你重新安排？这周哪天方便？ ☺️</div>
-          <div class="en">[Name] looks like we missed you today 😊 No worries!<br>Want me to rearrange? Which day this week? ☺️</div>
+          <div class="en">[Name] looks like we missed you today 😊 No worries!<br>Want me to rearrange? Which day this week works? ☺️</div>
         </div>
       </div>
       <div class="tli">
         <div class="tld" style="background:var(--ro)"></div>
         <div class="tlt" style="color:var(--ro)">+2天</div>
         <div class="sb sb-r" style="margin-top:7px"><span class="sl sl-r">FFK +2d</span><button class="cpb">Copy</button>
-          <div class="zh s">[Name] 只是想再跟进一下 ☺️<br><br>随时可以重新安排，律师这周还有空档。<br>要不要我帮你预留？ ☺️</div>
-          <div class="en">[Name] just following up ☺️<br><br>We can rearrange anytime, lawyer still has slots this week.<br>Want me to reserve one? ☺️</div>
+          <div class="zh s">[Name] 只是想再跟进一下 ☺️<br><br>随时可以重新安排 Case Assessment，律师这周还有空档。要不要我帮你预留？ ☺️</div>
+          <div class="en">[Name] just following up ☺️<br><br>We can rearrange the Case Assessment anytime — lawyer still has slots this week. Want me to reserve one? ☺️</div>
         </div>
       </div>
     </div>
@@ -764,17 +812,16 @@ Are you free <strong>tomorrow at 2pm</strong>? Or would <strong>the morning afte
   <!-- RULES TAB -->
   <div class="tab-pane" id="pro-rules">
     <div class="clbl"><div class="dot dr"></div><span class="zh s">🚨 遗产案件 — 绝对禁止</span><span class="en">🚨 Estate — Absolutely forbidden</span></div>
-    <div class="rc"><div class="ri">❌</div><div><div class="rt"><span class="zh s">在 WA 上解释遗产分配</span><span class="en">Explaining estate distribution on WA</span></div><div class="rd"><span class="zh s">Lead 问"我应该分到多少"、"他们可以这样做吗"——不要答。引导来见律师。</span><span class="en">Lead asks "how much should I get", "can they do that" — don't answer. Guide to see the lawyer.</span></div></div></div>
-    <div class="rc"><div class="ri">❌</div><div><div class="rt"><span class="zh s">混淆 Probate 和 LA</span><span class="en">Confusing Probate and LA</span></div><div class="rd"><span class="zh s">有 Will = Probate。没有 Will = Letters of Administration。两个不一样，不要搞混。</span><span class="en">With Will = Probate. No Will = Letters of Administration. They are different — don't mix them up.</span></div></div></div>
+    <div class="rc"><div class="ri">❌</div><div><div class="rt"><span class="zh s">在 WA 上解释遗产分配</span><span class="en">Explaining estate distribution on WA</span></div><div class="rd"><span class="zh s">Lead 问"我应该分到多少"、"他们可以这样做吗"——不要答。引导来 Case Assessment。</span><span class="en">Lead asks "how much should I get", "can they do that" — don't answer. Guide to Case Assessment.</span></div></div></div>
+    <div class="rc"><div class="ri">❌</div><div><div class="rt"><span class="zh s">混淆 Probate 和 LA</span><span class="en">Confusing Probate and LA</span></div><div class="rd"><span class="zh s">有 Will = Grant of Probate。没有 Will = Letters of Administration。两个不一样，不要搞混。</span><span class="en">With Will = Probate. No Will = Letters of Administration. They are different — don't mix them up.</span></div></div></div>
     <div class="rc"><div class="ri">❌</div><div><div class="rt"><span class="zh s">承诺遗产分配结果</span><span class="en">Promising estate distribution outcomes</span></div><div class="rd"><span class="zh s">"你一定能拿到那个房子"——CS 不是律师，不能承诺任何结果。</span><span class="en">"You'll definitely get the house" — CS is not a lawyer, cannot promise any outcome.</span></div></div></div>
     <div class="div"></div>
     <div class="clbl"><div class="dot dgn"></div><span class="zh s">✅ 必须做到</span><span class="en">✅ Must do</span></div>
-    <div class="rc" style="border-color:rgba(61,122,90,.2)"><div class="ri">✅</div><div><div class="rt"><span class="zh s">每条消息以问句结尾</span><span class="en">Every message ends with a question</span></div><div class="rd"><span class="zh s">永远以"这周哪天方便？"收尾。没有问句 = 对话停止。</span><span class="en">Always end with "Which day this week works?" No question = conversation dies.</span></div></div></div>
-    <div class="rc" style="border-color:rgba(61,122,90,.2)"><div class="ri">✅</div><div><div class="rt"><span class="zh s">咨询费抵扣每次都说</span><span class="en">Always mention fee deductible</span></div><div class="rd"><span class="zh s">"委托后全额抵扣"——让 lead 觉得咨询费不是额外支出。</span><span class="en">"Fully deductible upon engagement" — make the consultation feel like no extra cost.</span></div></div></div>
-    <div class="rc" style="border-color:rgba(61,122,90,.2)"><div class="ri">✅</div><div><div class="rt"><span class="zh s">情况复杂 → 更要来见律师</span><span class="en">Complex situation → Even more reason to see lawyer</span></div><div class="rd"><span class="zh s">"正因为情况复杂，更需要律师当面帮你分析——WA 上说不清楚，来见律师才能给你最准确的建议。"</span><span class="en">"Precisely because it's complex, you need the lawyer in person — hard to explain fully on WA, face-to-face gives the most accurate advice."</span></div></div></div>
+    <div class="rc" style="border-color:rgba(61,122,90,.2)"><div class="ri">✅</div><div><div class="rt"><span class="zh s">每条消息以问句结尾</span><span class="en">Every message ends with a question</span></div><div class="rd"><span class="zh s">没有问句 = 对话停止。永远以"要不要我帮你安排？"收尾。</span><span class="en">No question = conversation dies. Always end with "Want me to arrange it?"</span></div></div></div>
+    <div class="rc" style="border-color:rgba(61,122,90,.2)"><div class="ri">✅</div><div><div class="rt"><span class="zh s">RM200 全额抵扣每次都说</span><span class="en">Always mention RM200 deductible</span></div><div class="rd"><span class="zh s">每次提 Case Assessment，都说"委托后全额抵扣"——让 lead 觉得不是额外支出。</span><span class="en">Every time you mention the Assessment, add "fully deductible upon engagement."</span></div></div></div>
+    <div class="rc" style="border-color:rgba(61,122,90,.2)"><div class="ri">✅</div><div><div class="rt"><span class="zh s">情况复杂 → 更要来见律师</span><span class="en">Complex situation → Even more reason to see lawyer</span></div><div class="rd"><span class="zh s">"正因为情况复杂，更需要律师当面分析——WA 说不清楚，Case Assessment 才能给你最准确的建议。"</span><span class="en">"Precisely because it's complex, you need the lawyer in person — hard to explain on WA, the Case Assessment gives the most accurate advice."</span></div></div></div>
   </div>
 
-</div>
 </div>
 </div>
 

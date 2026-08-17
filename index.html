@@ -909,7 +909,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   document.querySelectorAll('.tab-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      var grp = this.closest('[id]');
+      var grp = this.closest('.tabs').parentElement;
       if (grp) switchTab(grp.id, this.getAttribute('data-tab'));
     });
   });

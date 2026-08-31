@@ -323,7 +323,7 @@ span.en { display: none; } span.en.s { display: inline; }
 
   <!-- FLOW TAB -->
   <div class="tab-pane on" id="div-flow">
-    <div class="al al-b" style="margin-bottom:12px"><div class="ali">🎯</div><div><span class="zh s">目标只有一个：让 lead 付 RM200 预约 Case Assessment。不要在 WA 给法律意见。</span><span class="en">One goal: get lead to pay RM200 and book Case Assessment. Never give legal advice on WA.</span></div></div>
+    <div class="al al-b" style="margin-bottom:12px"><div class="ali">🎯</div><div><span class="zh s">目标只有一个：预约 Case Assessment。不要在 WA 给任何法律意见。</span><span class="en">One goal: book the Case Assessment. Never give legal advice on WA.</span></div></div>
 
     <!-- STEP 1: BOT -->
     <div class="card">
@@ -336,9 +336,8 @@ span.en { display: none; } span.en.s { display: inline; }
 
     <!-- STEP 2: MINI DIAGNOSIS -->
     <div class="card">
-      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 2 — Mini Diagnosis（CS 接手，问 3-4 个问题）</span><span class="en">👤 Step 2 — Mini Diagnosis (CS takes over, ask 3-4 questions)</span></div>
-      <div class="al al-g" style="margin-bottom:8px"><div class="ali">💡</div><div><span class="zh s">目的不是收集资料，是让 lead <strong>说出自己的痛</strong>。说得越多，他越需要答案。一次问一个，不要一次过问完。</span><span class="en">The goal isn't to collect info — it's to get the lead to <strong>articulate their pain</strong>. The more they say, the more they need answers. Ask one at a time.</span></div></div>
-
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 2 — Mini Diagnosis（CS 接手）</span><span class="en">👤 Step 2 — Mini Diagnosis (CS takes over)</span></div>
+      <div class="al al-g" style="margin-bottom:8px"><div class="ali">💡</div><div><span class="zh s">一次问一个，让 lead 说出自己的情况。说得越多，他越需要答案。</span><span class="en">Ask one at a time. The more they share, the more they need answers.</span></div></div>
       <div class="sb"><span class="sl">Q1 — 开场接手</span><button class="cpb">Copy</button>
         <div class="zh s">了解了 ☺️ 你们现在大概是什么情况？方便说一下吗？</div>
         <div class="en">Got it ☺️ What's your current situation roughly? Would you like to share a bit?</div>
@@ -351,78 +350,142 @@ span.en { display: none; } span.en.s { display: inline; }
         <div class="zh s">你们有共同的资产吗？比如房子、车子、或者共同存款？</div>
         <div class="en">Do you have any joint assets? For example, a house, car, or joint savings?</div>
       </div>
-      <div class="sb" style="margin-top:8px"><span class="sl">Q4 — 文件状态</span><button class="cpb">Copy</button>
+      <div class="sb" style="margin-top:8px"><span class="sl">Q4A — 文件状态（双方同意用）</span><button class="cpb">Copy</button>
         <div class="zh s">好的 ☺️ 那你们现在有没有开始处理任何文件？还是还没完全开始呢？</div>
         <div class="en">Got it ☺️ Have you both started processing any documents yet? Or haven't really started at all?</div>
+      </div>
+      <div class="sb" style="margin-top:8px"><span class="sl">Q4B — 沟通状况（单方面用）</span><button class="cpb">Copy</button>
+        <div class="zh s">你有没有试过跟对方谈过？他/她的态度是怎样的？</div>
+        <div class="en">Have you tried talking to your spouse about this? What's their attitude like?</div>
       </div>
     </div>
 
     <!-- STEP 3: SETTER SUMMARY -->
     <div class="card">
-      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 3 — Setter Summary（重复他的情况，让他感觉被理解）</span><span class="en">👤 Step 3 — Setter Summary (repeat their situation back to them)</span></div>
-      <div class="al al-g" style="margin-bottom:8px"><div class="ali">💡</div><div><span class="zh s">把他说的总结一遍，用他的原话。这一步让 lead 觉得"你真的在听"，不是在走程序。</span><span class="en">Summarise what they said using their own words. This makes the lead feel heard, not processed.</span></div></div>
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 3 — Setter Summary（重复他的情况）</span><span class="en">👤 Step 3 — Setter Summary (repeat their situation)</span></div>
+      <div class="al al-g" style="margin-bottom:8px"><div class="ali">💡</div><div><span class="zh s">用他的原话总结，让 lead 感觉"你真的在听"。</span><span class="en">Summarise using their own words. Makes the lead feel genuinely heard.</span></div></div>
       <div class="sb"><span class="sl">Setter Summary</span><button class="cpb">Copy</button>
-        <div class="zh s">好，让我确认一下你的情况——<br><br>你们结婚 [X 年]，[有/没有] 孩子，[有/没有] 共同资产，然后双方都同意离婚，文件还没开始处理。<br><br>我说的对吗？</div>
-        <div class="en">Okay, let me confirm your situation —<br><br>You've been married for [X years], [have/don't have] children, [have/don't have] joint assets, and you both agree to divorce but haven't started processing documents yet.<br><br>Did I get that right?</div>
+        <div class="zh s">好，让我确认一下你的情况——<br><br>你们结婚 [X 年]，[有/没有] 孩子，[有/没有] 共同资产，[然后对方的情况]。<br><br>我说的对吗？</div>
+        <div class="en">Okay, let me confirm your situation —<br><br>You've been married for [X years], [have/don't have] children, [have/don't have] joint assets, [and spouse's situation].<br><br>Did I get that right?</div>
       </div>
     </div>
 
-    <!-- STEP 4: CREATE GAP -->
+    <div class="div"></div>
+
+    <!-- ══ STEP 4A: 双方同意 ══ -->
+    <div class="al al-b" style="margin:4px 0 10px"><div class="ali">🤝</div><div><span class="zh s"><strong>Lead 选了 A — 双方同意</strong></span><span class="en"><strong>Lead chose A — Mutual divorce</strong></span></div></div>
+
     <div class="card">
-      <div class="clbl"><div class="dot dr"></div><span class="zh s">👤 Step 4 — Create Gap（让他意识到不处理的代价）</span><span class="en">👤 Step 4 — Create Gap (make them realise the cost of not acting)</span></div>
-      <div class="al al-r" style="margin-bottom:8px"><div class="ali">⚠️</div><div><span class="zh s">不要威胁，要说事实。目的是让他感觉到"拖着不处理对我不利"。根据他的情况选最相关的。</span><span class="en">Don't threaten — state facts. The goal is to make them feel "not acting puts me at a disadvantage." Pick the most relevant version.</span></div></div>
-
-      <div class="sb sb-r"><span class="sl sl-r">双方同意 Gap</span><button class="cpb">Copy</button>
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">Step 4A — Create Gap（双方同意）</span><span class="en">Step 4A — Create Gap (Mutual)</span></div>
+      <div class="sb"><span class="sl">Mutual Gap</span><button class="cpb">Copy</button>
         <div class="zh s">明白 ☺️ 老实说，你们这种情况其实是最顺利的一种——双方都同意。<br><br>不过有一件事很多人不知道：口头讲好不等于有法律效力。没有正式文件之前，孩子监护权、房子和车子的分配都还没有法律保障——万一之后任何一方想法有变，现在谈好的东西可能要重新来过，甚至从"双方同意"变成"单方面"，流程和费用都会复杂很多。</div>
-        <div class="en">Understood ☺️ Honestly, your situation is the smoothest kind — both parties agree.<br><br>But here's something many people don't realise: a verbal agreement has no legal effect. Without formal documents, custody arrangements, the house and car distribution have no legal protection — if either party changes their mind later, everything agreed now may need to start over, and it could even shift from "mutual" to "contested", making the process and costs far more complicated.</div>
+        <div class="en">Understood ☺️ Honestly, your situation is the smoothest kind — both parties agree.<br><br>But here's something many people don't realise: a verbal agreement has no legal effect. Without formal documents, custody, house and car distribution have no legal protection — if either party changes their mind, everything agreed now may need to start over, possibly shifting from "mutual" to "contested", making the process far more complicated and costly.</div>
       </div>
     </div>
+
+    <div class="div"></div>
+
+    <!-- ══ STEP 4B: 单方面 ══ -->
+    <div class="al al-b" style="margin:4px 0 10px"><div class="ali">⚖️</div><div><span class="zh s"><strong>Lead 选了 B — 单方面离婚</strong></span><span class="en"><strong>Lead chose B — Contested divorce</strong></span></div></div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dr"></div><span class="zh s">Step 4B — 有孩子 / 有资产</span><span class="en">Step 4B — Has children / assets</span></div>
+      <div class="sb sb-r"><span class="sl sl-r">B Has Kids/Assets</span><button class="cpb">Copy</button>
+        <div class="zh s">明白你的情况了 😌 你这边涉及到抚养权/资产的部分，这两块其实是离婚案件里最容易出问题的地方——每个家庭的情况都不一样，比如资产怎么分、监护权怎么安排，就需要律师了解你的实际情况才能给到准确方向。<br><br>还是有哪一个方面你会比较担心吗？</div>
+        <div class="en">Got it 😌 The custody / assets part of your situation — these are actually the areas most likely to cause problems in divorce cases. Every family is different, and how assets are divided or custody arranged requires the lawyer to understand your actual situation before giving accurate direction.<br><br>Is there any particular area you're more concerned about?</div>
+      </div>
+      <div class="al al-g" style="margin-top:8px"><div class="ali">↓</div><div><span class="zh s">Lead 说担心资产 / 孩子 → 用下面这条</span><span class="en">Lead says worried about assets / custody → use below</span></div></div>
+      <div class="sb" style="margin-top:6px"><span class="sl">B Has Concern → Bridge</span><button class="cpb">Copy</button>
+        <div class="zh s">像你这种情况，[资产/孩子] 的安排如果没有尽快确认法律上的保障，时间拖得越长对方越有机会做准备——对你越不利。<br><br>所以我想帮你安排 Case Assessment，1 对 1 跟律师过一遍你的情况，确认下一步怎么走。大概 30 分钟就可以了。<br><br>你明天中午方便吗？ ☺️</div>
+        <div class="en">In a situation like yours, the longer the [assets / custody] arrangement goes without legal protection, the more time your spouse has to prepare — putting you at a disadvantage.<br><br>So I'd like to arrange a Case Assessment — a 1-on-1 with the lawyer to go through your situation. About 30 minutes.<br><br>Are you free tomorrow at noon? ☺️</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dr"></div><span class="zh s">Step 4B — 没有孩子 / 没有资产</span><span class="en">Step 4B — No children / no assets</span></div>
+      <div class="sb sb-r"><span class="sl sl-r">B No Kids/Assets</span><button class="cpb">Copy</button>
+        <div class="zh s">明白你的情况 😌 单方面离婚相当于起诉。单方面跟双方面程序有所不同，为了保护你的基本权益，我这边会建议你直接见律师咨询，帮你制定一个方案，进行下一步。<br><br>还是你有其他担心的部分吗？</div>
+        <div class="en">Got it 😌 A one-sided divorce is essentially filing a lawsuit. The process is different from mutual divorce — to protect your basic rights, I'd recommend you speak directly with a lawyer to work out a plan and take the next step.<br><br>Or is there any other concern you have?</div>
+      </div>
+      <div class="al al-g" style="margin-top:8px"><div class="ali">↓</div><div><span class="zh s">Lead 说目前没有担心 → 用下面这条</span><span class="en">Lead says no concerns → use below</span></div></div>
+      <div class="sb" style="margin-top:6px"><span class="sl">B No Concern → Bridge</span><button class="cpb">Copy</button>
+        <div class="zh s">没关系 🙏 其实单方面离婚的程序本身就比较复杂，不是担不担心的问题——是有一些细节如果没有律师帮你看，很容易走错方向，白白浪费时间和钱。<br><br>所以我想帮你安排 Case Assessment，1 对 1 跟律师确认你的情况，大概 30 分钟就可以了。<br><br>你明天中午方便吗？ ☺️</div>
+        <div class="en">No worries 🙏 Honestly, a one-sided divorce is quite complex in itself — it's not about whether you're worried or not. Without a lawyer reviewing the details, it's easy to go in the wrong direction and waste time and money.<br><br>So I'd like to arrange a Case Assessment — a 1-on-1 with the lawyer, about 30 minutes.<br><br>Are you free tomorrow at noon? ☺️</div>
+      </div>
+      <div class="al al-g" style="margin-top:8px"><div class="ali">↓</div><div><span class="zh s">Lead 说担心 [某情况] → 用下面这条</span><span class="en">Lead says worried about [something] → use below</span></div></div>
+      <div class="sb" style="margin-top:6px"><span class="sl">B Has Concern (General) → Bridge</span><button class="cpb">Copy</button>
+        <div class="zh s">像你这种情况，[情况] 如果没有律师帮你看清楚，时间拖得越长对你越不利。<br><br>所以我想帮你安排 Case Assessment，1 对 1 跟律师过一遍，大概 30 分钟就可以确认你的选择和下一步了。<br><br>你明天中午方便吗？ ☺️</div>
+        <div class="en">In a situation like yours, the longer [situation] goes without a lawyer helping you understand it clearly, the more it works against you.<br><br>So I'd like to arrange a Case Assessment — a 1-on-1 with the lawyer, about 30 minutes to confirm your options and next step.<br><br>Are you free tomorrow at noon? ☺️</div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- ══ STEP 4C: 想了解 ══ -->
+    <div class="al al-b" style="margin:4px 0 10px"><div class="ali">❓</div><div><span class="zh s"><strong>Lead 选了 C — 想了解流程</strong></span><span class="en"><strong>Lead chose C — Wants to understand process</strong></span></div></div>
+
+    <div class="card">
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">Step 4C — 问单/双方面</span><span class="en">Step 4C — Ask single/mutual</span></div>
+      <div class="sb"><span class="sl">C Enquiry Reply</span><button class="cpb">Copy</button>
+        <div class="zh s">明白～ 😌<br><br>其实离婚程序主要看你是单方面还是双方面申请，会有一定的区别：<br><br>• 双方面：两个人一起准备文件，排期庭审，然后到 JPN 申请<br>• 单方面：视情况而定，有些还需要额外多一个婚姻辅导的程序<br><br>方便问一下，你现在是偏向哪一种？对方知道 / 同意离婚这件事吗？</div>
+        <div class="en">Got it～ 😌<br><br>Divorce procedures mainly depend on whether it's a mutual or one-sided application — there's a difference:<br><br>• Mutual: both prepare documents together, schedule a hearing, then apply at JPN<br>• One-sided: depends on the situation, some cases may also need an additional marriage counselling step<br><br>Can I ask — which are you leaning towards? Does your spouse know about / agree to the divorce?</div>
+      </div>
+      <div class="al al-g" style="margin-top:8px"><div class="ali">↓</div><div><span class="zh s">Lead 说了单/双方面之后 → 用下面这条</span><span class="en">After lead confirms → use below</span></div></div>
+      <div class="sb" style="margin-top:6px"><span class="sl">C Bridge → Assessment</span><button class="cpb">Copy</button>
+        <div class="zh s">明白你现在的情况了 😌<br><br>你知道吗，很多人在这个阶段都会自己先上网查、问朋友，想说搞清楚了再找律师——但其实每个人情况不一样，网上查到的资讯不一定适用在你身上，反而容易花时间走冤枉路，甚至搞错自己该走哪个程序。<br><br>越早让律师看过你的实际情况，你越清楚接下来该怎么走，不会浪费时间摸索。<br><br>我帮你安排 1 对 1 跟律师咨询，大概 30 分钟就可以确认完你的情况和流程了。<br><br>你明天中午方便吗？ ☺️</div>
+        <div class="en">Got it 😌<br><br>You know, a lot of people at this stage search online, ask friends — thinking they'll figure it out before seeing a lawyer. But everyone's situation is different, and what you find online may not apply to you. Easy to waste time, or end up in the wrong procedure.<br><br>The sooner a lawyer looks at your actual situation, the clearer you'll be on what to do — no wasted time figuring it out yourself.<br><br>Let me arrange a 1-on-1 with the lawyer — about 30 minutes to confirm your situation and process.<br><br>Are you free tomorrow at noon? ☺️</div>
+      </div>
+    </div>
+
+    <div class="div"></div>
 
     <!-- STEP 5: PRESENT CASE ASSESSMENT -->
     <div class="card">
-      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 5 — Present Case Assessment（frame 咨询为评估，不是推销）</span><span class="en">👤 Step 5 — Present Case Assessment (frame consult as assessment, not sales)</span></div>
+      <div class="clbl"><div class="dot dg"></div><span class="zh s">👤 Step 5 — Present Case Assessment（A/B/C 都用这个）</span><span class="en">👤 Step 5 — Present Case Assessment (all routes)</span></div>
+      <div class="al al-g" style="margin-bottom:8px"><div class="ali">💡</div><div><span class="zh s">不是叫他马上决定——是让他先了解情况和选择。说完问"可以吗？"等他 OK 才发 RM200。</span><span class="en">Not asking them to decide now — just to understand their situation and options. Ask "can I?" and wait for OK before sending RM200.</span></div></div>
       <div class="sb"><span class="sl">Case Assessment Pitch</span><button class="cpb">Copy</button>
         <div class="zh s">所以我这里帮你安排 1 对 1 跟律师咨询，确认细节后，看你要不要委托我们。<br><br>大概 30 分钟就可以确认完细节和流程了。<br><br>我帮你安排，可以吗？ ☺️</div>
-        <div class="en">So let me arrange a 1-on-1 consultation with the lawyer for you — confirm the details, then you decide whether you want to engage us.<br><br>About 30 minutes to confirm all the details and process.<br><br>Can I arrange it for you? ☺️</div>
+        <div class="en">So let me arrange a 1-on-1 consultation with the lawyer for you — confirm the details, then you decide whether to engage us.<br><br>About 30 minutes to confirm everything.<br><br>Can I arrange it for you? ☺️</div>
       </div>
     </div>
 
-    <!-- STEP 6: RM200 + CTA -->
+    <!-- STEP 6: 如果问收费 -->
     <div class="card">
-      <div class="clbl"><div class="dot dr"></div><span class="zh s">⚡ Lead 问："这个收费吗？" / "这个免费吗？"</span><span class="en">⚡ Lead asks: "Is this chargeable?" / "Is this free?"</span></div>
-      <div class="al al-r" style="margin-bottom:8px"><div class="ali">🚨</div><div><span class="zh s">这是最关键的时刻。<strong>必须正面回答</strong>，不要跳过直接给时间或地址。Lead 问这个是因为他想知道条件，才决定要不要来。</span><span class="en">This is the most critical moment. <strong>Must answer directly</strong> — don't skip to giving time or address. Lead is asking because they need to know the terms before deciding.</span></div></div>
+      <div class="clbl"><div class="dot dr"></div><span class="zh s">⚡ Step 6 — 如果 Lead 问"这个收费吗？"</span><span class="en">⚡ Step 6 — If Lead asks "Is this chargeable?"</span></div>
+      <div class="al al-r" style="margin-bottom:8px"><div class="ali">🚨</div><div><span class="zh s"><strong>必须正面回答</strong>，不要跳过直接给时间或地址。</span><span class="en"><strong>Must answer directly</strong> — don't skip to giving time or address.</span></div></div>
       <div class="sb sb-r"><span class="sl sl-r">收费话术</span><button class="cpb">Copy</button>
         <div class="zh s">好问题！Case Assessment 是 RM200 ☺️<br><br>不过我要告诉你一件事——如果你之后决定委托我们处理你的案件，这 RM200 是<strong>全额抵扣</strong>的。<br><br>等于说，你花 RM200 让律师直接告诉你：你的情况、你的选择、下一步怎么走。如果你继续做，这 RM200 回来给你。<br><br>你觉得这个合理吗？ ☺️</div>
-        <div class="en">Good question! The Case Assessment is RM200 ☺️<br><br>But here's the thing — if you decide to engage us to handle your case afterwards, this RM200 is <strong>fully deducted</strong>.<br><br>So essentially, you spend RM200 to have the lawyer tell you directly: your situation, your options, and your next step. If you continue, the RM200 comes back to you.<br><br>Does that sound fair to you? ☺️</div>
+        <div class="en">Good question! The Case Assessment is RM200 ☺️<br><br>But here's the thing — if you decide to engage us afterwards, this RM200 is <strong>fully deducted</strong>.<br><br>So essentially, you spend RM200 to have the lawyer tell you directly: your situation, your options, and your next step. If you continue, the RM200 comes back to you.<br><br>Does that sound fair to you? ☺️</div>
       </div>
     </div>
 
+    <!-- STEP 7: RM200 + CTA -->
     <div class="card">
-      <div class="clbl"><div class="dot dgn"></div><span class="zh s">👤 Step 6 — RM200 + Two-Choice CTA（Lead 说 OK 之后才发）</span><span class="en">👤 Step 6 — RM200 + Two-Choice CTA (send only after lead says OK)</span></div>
-      <div class="al al-gn" style="margin-bottom:8px"><div class="ali">💡</div><div><span class="zh s">等 lead 说 "OK" / "可以" / "好" 之后才发这条。价格在这里说，两个时间选项，不给开放式问题。</span><span class="en">Only send this after lead says "OK" / "yes" / "can". Price mentioned here, two time options only — never open-ended.</span></div></div>
+      <div class="clbl"><div class="dot dgn"></div><span class="zh s">👤 Step 7 — RM200 + Two-Choice CTA（Lead 说 OK 之后才发）</span><span class="en">👤 Step 7 — RM200 + CTA (only after lead says OK)</span></div>
+      <div class="al al-gn" style="margin-bottom:8px"><div class="ali">💡</div><div><span class="zh s">等 lead 说 OK / 可以 / 好 之后才发这条。给两个时间选项，不给开放式问题。</span><span class="en">Only send after lead says OK. Give two time options — never open-ended.</span></div></div>
       <div class="sb sb-gn"><span class="sl sl-gn">RM200 CTA</span><button class="cpb">Copy</button>
-        <div class="zh s">好的 ☺️ Case Assessment 是 <strong>RM200</strong>。<br><br>如果你之后决定委托我们处理，这 RM200 全额抵扣——等于你的 Assessment 是免费的。<br><br>📍 线下 KL 或 💻 Zoom 都可以。<br><br>你<strong>明天中午</strong>方便吗？还是<strong>后天</strong>比较好？ ☺️</div>
-        <div class="en">Great ☺️ The Case Assessment is <strong>RM200</strong>.<br><br>If you decide to engage us afterwards, the RM200 is fully deducted — so your Assessment is essentially free.<br><br>📍 In-person KL or 💻 Zoom, both available.<br><br>Are you free <strong>tomorrow at noon</strong>? Or would <strong>the day after</strong> work better? ☺️</div>
+        <div class="zh s">好的 ☺️ Case Assessment 是 <strong>RM200</strong>。<br><br>如果你之后决定委托我们处理，这 RM200 全额抵扣——等于你的 Assessment 是免费的。<br><br>📍 线下 KL 或 💻 Zoom 都可以。<br><br>你<strong>明天中午</strong>方便，还是<strong>后天</strong>比较好？ ☺️</div>
+        <div class="en">Great ☺️ The Case Assessment is <strong>RM200</strong>.<br><br>If you engage us afterwards, the RM200 is fully deducted — so your Assessment is essentially free.<br><br>📍 In-person KL or 💻 Zoom, both available.<br><br>Are you free <strong>tomorrow at noon</strong>? Or would <strong>the day after</strong> work better? ☺️</div>
       </div>
     </div>
 
-    <!-- STEP 7: PAYMENT -->
+    <!-- STEP 8: PAYMENT -->
     <div class="card">
-      <div class="clbl"><div class="dot db"></div><span class="zh s">💳 Step 7 — Payment（Lead 确认时间后）</span><span class="en">💳 Step 7 — Payment (after lead confirms time)</span></div>
-      <div class="al al-b" style="margin-bottom:8px"><div class="ali">📋</div><div><span class="zh s">Lead 确认了时间之后，发付款资料。简短，清楚，给 deadline。</span><span class="en">After lead confirms time, send payment details. Short, clear, with a deadline.</span></div></div>
-      <div class="sb sb-b"><span class="sl sl-b">Payment Instructions</span><button class="cpb">Copy</button>
-        <div class="zh s">好的！我帮你预留 [日期 + 时间] 的档期 ☺️<br><br>麻烦你在 [时间，例如：今天内] 完成付款，档期才算确认。<br><br>💳 <strong>付款资料：</strong><br>银行：[银行名]<br>户名：[户名]<br>账号：[账号]<br>金额：RM200<br><br>付款后请把 receipt 发给我，我帮你确认 ✅</div>
-        <div class="en">Great! I've reserved the slot for you on [date + time] ☺️<br><br>Please complete payment by [time, e.g. today] to confirm your slot.<br><br>💳 <strong>Payment details:</strong><br>Bank: [Bank name]<br>Account name: [Name]<br>Account number: [Number]<br>Amount: RM200<br><br>Please send the receipt to me after payment and I'll confirm your slot ✅</div>
+      <div class="clbl"><div class="dot db"></div><span class="zh s">💳 Step 8 — Payment（确认时间后）</span><span class="en">💳 Step 8 — Payment (after time confirmed)</span></div>
+      <div class="al al-b" style="margin-bottom:8px"><div class="ali">📋</div><div><span class="zh s">Lead 确认了时间之后，发付款资料。简短，清楚，给 deadline。</span><span class="en">After lead confirms time, send payment details. Short, clear, with deadline.</span></div></div>
+      <div class="sb sb-b"><span class="sl sl-b">Payment</span><button class="cpb">Copy</button>
+        <div class="zh s">好的！我帮你预留 [日期 + 时间] ☺️<br><br>麻烦你在 [时间] 之前完成付款，档期才算确认。<br><br>💳 <strong>付款资料：</strong><br>银行：[银行名]<br>户名：[户名]<br>账号：[账号]<br>金额：RM200<br><br>付款后请把 receipt 发给我，我帮你确认 ✅</div>
+        <div class="en">Great! I've reserved [date + time] for you ☺️<br><br>Please complete payment by [time] to confirm your slot.<br><br>💳 <strong>Payment details:</strong><br>Bank: [Bank name]<br>Account name: [Name]<br>Account number: [Number]<br>Amount: RM200<br><br>Please send the receipt after payment and I'll confirm ✅</div>
       </div>
     </div>
 
-    <!-- OBJECTION: NO MONEY -->
+    <!-- OBJECTION HANDLING -->
     <div class="div"></div>
     <div class="clbl"><div class="dot dr"></div><span class="zh s">🛡️ Objection — "没钱" / "考虑一下"</span><span class="en">🛡️ Objection — "No money" / "Let me think"</span></div>
 
     <div class="oc">
-      <div class="oq"><span class="zh s">"没钱" / "等发薪水" / "寄钱回家"</span><span class="en">"No money" / "Waiting for salary" / "Need to send money home"</span></div>
-      <div class="ow">⚡ <span class="zh s">"没钱"99%不是真正原因。先找出真实 objection，再处理。</span><span class="en">"No money" is 99% not the real reason. Find the real objection first.</span></div>
+      <div class="oq"><span class="zh s">"没钱" / "等发薪水" / "寄钱回家"</span><span class="en">"No money" / "Waiting for salary"</span></div>
+      <div class="ow">⚡ <span class="zh s">"没钱"99%不是真正原因。先找出真实 objection。</span><span class="en">"No money" is 99% not the real reason. Find the real objection first.</span></div>
       <div style="padding:0 12px 12px">
         <div class="sb sb-r"><span class="sl sl-r">先找真实 objection</span><button class="cpb">Copy</button>
           <div class="zh s">我理解 ☺️ 想先问你——是这个月真的资金比较紧，还是你其实还不确定这个 Assessment 对你有没有帮助？</div>
@@ -433,15 +496,15 @@ span.en { display: none; } span.en.s { display: inline; }
           <div class="en">Understood. How about this — let me hold the slot for you first, and you confirm payment when you're ready, okay?<br><br>The lawyer's slots are limited and I don't want you to miss out ☺️<br><br>When do you think you'll be available?</div>
         </div>
         <div class="sb sb-r" style="margin-top:8px"><span class="sl sl-r">如果是不确定值不值得</span><button class="cpb">Copy</button>
-          <div class="zh s">我明白这个顾虑 ☺️<br><br>其实你想一下——你现在的情况，你自己能解决吗？还是说你需要有人告诉你到底有哪些选择？<br><br>RM200，律师 1 小时直接告诉你你的情况、你的选择、你的第一步。如果之后委托我们，这 RM200 全额抵扣。<br><br>就算你做完 Assessment 之后决定不继续，你至少清楚自己的情况了——这个信息本身就值这个价。</div>
-          <div class="en">I understand that concern ☺️<br><br>Think about it this way — can you resolve your current situation on your own? Or do you need someone to tell you what options you actually have?<br><br>RM200, the lawyer gives you 1 hour to directly explain your situation, your options, and your first step. If you engage us after, RM200 is fully deducted.<br><br>Even if you decide not to proceed after the Assessment, at least you'll know exactly where you stand — and that information alone is worth the price.</div>
+          <div class="zh s">我明白这个顾虑 ☺️<br><br>其实你想一下——你现在的情况，你自己能解决吗？还是说你需要有人告诉你到底有哪些选择？<br><br>RM200，律师直接告诉你你的情况、你的选择、你的第一步。如果之后委托我们，全额抵扣。<br><br>就算做完 Assessment 之后决定不继续，你至少清楚自己的情况了——这个信息本身就值这个价。</div>
+          <div class="en">I understand that concern ☺️<br><br>Think about it this way — can you resolve your current situation on your own? Or do you need someone to tell you what options you actually have?<br><br>RM200, the lawyer gives you direct answers on your situation, your options, your first step. Fully deductible if you engage us.<br><br>Even if you decide not to proceed after the Assessment, at least you'll know exactly where you stand — and that information alone is worth the price.</div>
         </div>
       </div>
     </div>
 
     <div class="oc">
       <div class="oq"><span class="zh s">"我要考虑一下"</span><span class="en">"Let me think about it"</span></div>
-      <div class="ow">⚡ <span class="zh s">不要说"好，你考虑"。找出他在考虑什么。</span><span class="en">Don't say "okay, take your time." Find out what they're considering.</span></div>
+      <div class="ow">⚡ <span class="zh s">立刻处理，不要等 follow up。找出他在考虑什么。</span><span class="en">Handle immediately — don't wait for follow up. Find out what they're considering.</span></div>
       <div style="padding:0 12px 12px">
         <div class="sb sb-r"><span class="sl sl-r">Think About It</span><button class="cpb">Copy</button>
           <div class="zh s">完全理解 ☺️ 不过我想先问你——你现在主要在考虑的是什么？<br><br>是价格？还是时间不方便？还是你还不确定自己要不要走这一步？<br><br>告诉我，我帮你解答 ☺️</div>
@@ -449,6 +512,7 @@ span.en { display: none; } span.en.s { display: inline; }
         </div>
       </div>
     </div>
+
   </div>
 
   <!-- SCRIPTS TAB (DIVORCE) -->
